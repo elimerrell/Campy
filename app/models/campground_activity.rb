@@ -1,0 +1,2 @@
+class CampgroundActivity < ApplicationRecord
+end
