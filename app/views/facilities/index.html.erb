@@ -1,0 +1,6 @@
+<ul>
+  <% @facilities.each do |facility| %>
+  <li><%= link_to facility.FacilityName, facility_path(facility) %></li>
+  <% end %>
+
+</ul>

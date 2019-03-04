@@ -1,8 +1,8 @@
 class CreateCampsites < ActiveRecord::Migration[5.2]
   def change
     create_table :campsites do |t|
-      t.integer :CampsiteID
-      t.integer :FacilityID
+      t.bigint :campsite_id, primary: true 
+      t.bigint :facility_id
       t.string :TypeOfUse
       t.string :Loop
       t.string :CampsiteAccessible

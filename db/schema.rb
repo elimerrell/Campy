@@ -10,11 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_04_171630) do
+ActiveRecord::Schema.define(version: 2019_03_04_203144) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "campsites", force: :cascade do |t|
-    t.integer "CampsiteID"
-    t.integer "FacilityID"
+    t.bigint "CampsiteID"
+    t.bigint "FacilityID"
     t.string "TypeOfUse"
     t.string "Loop"
     t.string "CampsiteAccessible"
@@ -38,6 +41,18 @@ ActiveRecord::Schema.define(version: 2019_03_04_171630) do
     t.boolean "Reservable"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "facility_addresses", force: :cascade do |t|
+    t.bigint "FacilityAddressID"
+    t.bigint "FacilityID"
+    t.string "FacilityStreetAddress1"
+    t.string "FacilityStreetAddress2"
+    t.string "FacilityStreetAddress3"
+    t.string "City"
+    t.integer "PostalCode"
+    t.string "AddressStateCode"
+    t.string "AddressCountryCode"
   end
 
 end

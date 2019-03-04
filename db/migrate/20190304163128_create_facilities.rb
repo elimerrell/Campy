@@ -1,7 +1,7 @@
 class CreateFacilities < ActiveRecord::Migration[5.2]
   def change
     create_table :facilities do |t|
-      t.integer :FacilityID
+      t.integer :facility_id, primary: true 
       t.integer :ParentRecAreaID
       t.string :FacilityName
       t.text :FacilityDescription

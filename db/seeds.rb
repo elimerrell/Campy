@@ -1,28 +1,15 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
- require 'json'
+require 'json'
 
-  #
-  #  json_from_file = File.read('db/Activities_API_v1.json')
-  #  hash = JSON.parse(json_from_file)
-  #  hash["RECDATA"].each do |array|
-#   # end
-#   puts "Dropping tables"
-# drop_table :facilities, if_exists: true
-# drop_table :campsites, if_exists: true
-# puts "Tables dropped"
+def parse_json(file)
+  json_from_file = File.read(file)
+  JSON.parse(json_from_file)
+end
 
-  puts "Populating facilities"
-   json_from_file = File.read('db/seed_data/Facilities_API_v1.json')
-   hash = JSON.parse(json_from_file)
-   hash["RECDATA"].each do |facility|
+puts "Populating facilities"
+hash = parse_json('db/seed_data/Facilities_API_v1.json')
+hash["RECDATA"].each do |facility|
     Facility.find_or_create_by(
-     FacilityID: facility["FacilityID"],
+     facility_id: facility["FacilityID"],
      ParentRecAreaID: facility["ParentRecAreaID"],
      FacilityName: facility["FacilityName"],
      FacilityDescription: facility["FacilityDescription"],
@@ -39,18 +26,35 @@
   end
   puts "Facilities populuated"
 
+  puts "Populating facility addresses"
+  hash = parse_json('db/seed_data/FacilityAddresses_API_v1.json')
+  hash["RECDATA"].each do |facility|
+    FacilityAddress.find_or_create_by(
+      FacilityAddressID: facility["FacilityAddressID"],
+      facility_id: facility["FacilityID"],
+      FacilityStreetAddress1: facility["FacilityStreetAddress1"],
+      FacilityStreetAddress2: facility["FacilityStreetAddress2"],
+      FacilityStreetAddress3: facility["FacilityStreetAddress3"],
+      City: facility["City"],
+      PostalCode: facility["PostalCode"],
+      AddressStateCode: facility["AddressStateCode"],
+      AddressCountryCode: facility["AddressCountryCode"]
+    )
+  end
+
+  puts "Facility addresses populated"
+
   puts "Populating Campsites"
-  json_from_file = File.read('db/seed_data/Campsites_API_v1.json')
-  hash = JSON.parse(json_from_file)
+  hash = parse_json('db/seed_data/Campsites_API_v1.json')
   hash["RECDATA"].each do |campsite|
    Campsite.find_or_create_by(
     CampsiteID: campsite["CampsiteID"],
-    FacilityID: campsite["FacilityID"],
+    facility_id: campsite["FacilityID"],
     TypeOfUse: campsite["TypeOfUse"],
     Loop: campsite["Loop"],
     CampsiteAccessible: campsite["CampsiteAccessible"],
     CampsiteLongitude: campsite["CampsiteLongitude"],
     CampsiteLatitude: campsite["CampsiteLatitude"]
 )
-end
+  end
 puts "Campsites populated"
