@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :facilities
   resources :campground_activities
   resources :activities
   resources :locations
