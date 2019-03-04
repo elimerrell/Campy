@@ -11,8 +11,11 @@
   #  json_from_file = File.read('db/Activities_API_v1.json')
   #  hash = JSON.parse(json_from_file)
   #  hash["RECDATA"].each do |array|
-  # end
-  Facility.destroy_all
+#   # end
+#   puts "Dropping tables"
+# drop_table :facilities, if_exists: true
+# drop_table :campsites, if_exists: true
+# puts "Tables dropped"
 
   puts "Populating facilities"
    json_from_file = File.read('db/seed_data/Facilities_API_v1.json')
@@ -35,3 +38,19 @@
   )
   end
   puts "Facilities populuated"
+
+  puts "Populating Campsites"
+  json_from_file = File.read('db/seed_data/Campsites_API_v1.json')
+  hash = JSON.parse(json_from_file)
+  hash["RECDATA"].each do |campsite|
+   Campsite.find_or_create_by(
+    CampsiteID: campsite["CampsiteID"],
+    FacilityID: campsite["FacilityID"],
+    TypeOfUse: campsite["TypeOfUse"],
+    Loop: campsite["Loop"],
+    CampsiteAccessible: campsite["CampsiteAccessible"],
+    CampsiteLongitude: campsite["CampsiteLongitude"],
+    CampsiteLatitude: campsite["CampsiteLatitude"]
+)
+end
+puts "Campsites populated"
