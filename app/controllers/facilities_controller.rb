@@ -1,7 +1,8 @@
 class FacilitiesController < ApplicationController
 
   def index
-    @facilities = Facility.search(params[:query])
+    @q = Facility.ransack(params[:q])
+    @facilities = @q.result.includes(:facility_address)
   end
 
   def show
