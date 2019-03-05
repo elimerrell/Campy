@@ -3,5 +3,5 @@ class Facility < ApplicationRecord
   has_many :campsites
   has_many :rec_area_facilities
   has_many :rec_areas, through: :rec_area_facilities
-
+  has_many :comments 
 end

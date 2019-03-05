@@ -78,11 +78,9 @@ end
 #     )
 # end
 
-puts "Populating Rec Area Facilities"
-hash = parse_json('db/seed_data/RecAreaFacilities_API_v1.json')
-hash["RECDATA"].each do |area|
- RecAreaFacility.find_or_create_by(
-   rec_area_id: area["RecAreaID"],
-   facility_id: area["FacilityID"]
- )
-end
+u1 = User.create(first_name: 'Bob', last_name: 'McKenzie', location: 'Great White North')
+u1 = User.create(first_name: 'Eli', last_name: 'Merrell', location: 'Seattle')
+u1 = User.create(first_name: 'Steve', last_name: 'Brule', location: 'San Diegro')
+u1 = User.create(first_name: 'Jim', last_name: 'Nantz', location: 'Texas')
+u1 = User.create(first_name: 'Doug', last_name: 'McKenzie', location: 'Toronto')
+u1 = User.create(first_name: 'Bill', last_name: 'Nye', location: 'Seattle')

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :comments
   resources :rec_area_facilities
   resources :rec_areas
   resources :facilities
