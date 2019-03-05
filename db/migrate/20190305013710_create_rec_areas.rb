@@ -2,7 +2,6 @@ class CreateRecAreas < ActiveRecord::Migration[5.2]
   def change
     create_table :rec_areas, id:false do |t|
       t.primary_key :id
-      t.bigint :org_rec_area_id
       t.string :rec_area_name
       t.text :rec_area_description
       t.text :rec_area_directions

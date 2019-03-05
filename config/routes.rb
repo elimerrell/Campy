@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :users
 
  get '/', to: 'application#welcome'
+ get '/search', to: 'application#search'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/login', to: 'sessions#destroy'

@@ -65,7 +65,6 @@ hash = parse_json('db/seed_data/RecAreas_API_v1.json')
 hash["RECDATA"].each do |area|
  RecArea.find_or_create_by(
     id: area["RecAreaID"],
-    org_rec_area_id: area["OrgRecAreaID"],
     rec_area_name: area["RecAreaName"],
     rec_area_description: area["RecAreaDescription"],
     rec_area_directions: area["RecAreaDirections"],
@@ -77,11 +76,12 @@ hash["RECDATA"].each do |area|
     reservable: area["Reservable"],
     )
 end
+puts "Rec Areas Populated"
 
 puts "Populating Rec Area Facilities"
 hash = parse_json('db/seed_data/RecAreaFacilities_API_v1.json')
 hash["RECDATA"].each do |rec|
-  Organization.find_or_create_by(
+  RecAreaFacility.find_or_create_by(
     rec_area_id: rec["RecAreaID"],
     facility_id: rec["FacilityID"],
   )
