@@ -8,7 +8,6 @@ class Facility < ApplicationRecord
       facility = FacilityAddress.where(AddressStateCode: query)
       if facility
          self.where(id: facility)
-        # byebug
       else
         Facility.all
       end
@@ -17,6 +16,4 @@ class Facility < ApplicationRecord
     end
   end
 
-  byebug
-  0
 end
