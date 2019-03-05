@@ -12,6 +12,6 @@ class FacilitiesController < ApplicationController
   private
 
   def facilities_params
-    params.require(:facility).permit(:id, :facility_id, :FacilityName, :query)
+    params.require(:facility).permit(:id, :facility_id, :facility_name, :query)
   end
 end

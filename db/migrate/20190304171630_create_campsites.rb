@@ -3,12 +3,12 @@ class CreateCampsites < ActiveRecord::Migration[5.2]
     create_table :campsites, id:false do |t|
       t.primary_key :id
       t.bigint :facility_id
-      t.string :CampSiteName
-      t.string :TypeOfUse
-      t.string :Loop
-      t.string :CampsiteAccessible
-      t.float :CampsiteLongitude
-      t.float :CampsiteLatitude
+      t.string :campsite_name
+      t.string :type_of_use
+      t.string :loop
+      t.string :campsite_accessible
+      t.float :campsite_longitude
+      t.float :campsite_latitude
     end
   end
 end

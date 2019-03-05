@@ -1,0 +1,13 @@
+<h1><%= @area.rec_area_name %></h1>
+<%= sanitize @area.rec_area_description %>
+
+<% if @area.keywords.empty? == false %>
+  <h4>Keywords</h4>
+  <ul>
+    <% words = @area.keywords.split(",") %>
+    <% words.each do |word| %>
+    <li><%= word %></li>
+    <% end %>
+  </ul>
+<% else %>
+<% end %>

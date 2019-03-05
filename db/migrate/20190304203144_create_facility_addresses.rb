@@ -3,13 +3,13 @@ class CreateFacilityAddresses < ActiveRecord::Migration[5.2]
     create_table :facility_addresses, id:false do |t|
       t.primary_key :id
       t.bigint :facility_id
-      t.string :FacilityStreetAddress1
-      t.string :FacilityStreetAddress2
-      t.string :FacilityStreetAddress3
-      t.string :City
-      t.integer :PostalCode
-      t.string  :AddressStateCode
-      t.string  :AddressCountryCode
+      t.string :facility_street_address1
+      t.string :facility_street_address2
+      t.string :facility_street_address3
+      t.string :city
+      t.integer :postal_code
+      t.string  :address_state_code
+      t.string  :address_country_code
     end
   end
 end

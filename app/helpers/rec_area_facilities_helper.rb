@@ -1,0 +1,2 @@
+module RecAreaFacilitiesHelper
+end

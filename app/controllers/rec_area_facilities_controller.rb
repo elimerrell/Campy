@@ -1,0 +1,2 @@
+class RecAreaFacilitiesController < ApplicationController
+end

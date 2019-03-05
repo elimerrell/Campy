@@ -1,11 +1,11 @@
 <%= search_form_for @q do |f| %>
-<%= f.search_field :facility_address_AddressStateCode_eq %>
+<%= f.search_field :facility_address_address_state_code_eq %>
   <%= f.submit  %>
 <% end %>
 
 
   <ul>
   <% @facilities.each do |facility| %>
-    <li><%= link_to facility.FacilityName, facility_path(facility) %></li>
+    <li><%= link_to facility.facility_name, facility_path(facility) %></li>
   <% end %>
   </ul>

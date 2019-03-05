@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :rec_area_facilities
+  resources :rec_areas
   resources :facilities
   resources :facility_address
   resources :campsites
