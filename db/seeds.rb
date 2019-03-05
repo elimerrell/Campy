@@ -9,7 +9,7 @@ puts "Populating facilities"
 hash = parse_json('db/seed_data/Facilities_API_v1.json')
 hash["RECDATA"].each do |facility|
     Facility.find_or_create_by(
-     facility_id: facility["FacilityID"],
+     id: facility["FacilityID"],
      ParentRecAreaID: facility["ParentRecAreaID"],
      FacilityName: facility["FacilityName"],
      FacilityDescription: facility["FacilityDescription"],
@@ -30,7 +30,7 @@ hash["RECDATA"].each do |facility|
   hash = parse_json('db/seed_data/FacilityAddresses_API_v1.json')
   hash["RECDATA"].each do |facility|
     FacilityAddress.find_or_create_by(
-      FacilityAddressID: facility["FacilityAddressID"],
+      id: facility["FacilityAddressID"],
       facility_id: facility["FacilityID"],
       FacilityStreetAddress1: facility["FacilityStreetAddress1"],
       FacilityStreetAddress2: facility["FacilityStreetAddress2"],
@@ -48,8 +48,9 @@ hash["RECDATA"].each do |facility|
   hash = parse_json('db/seed_data/Campsites_API_v1.json')
   hash["RECDATA"].each do |campsite|
    Campsite.find_or_create_by(
-    CampsiteID: campsite["CampsiteID"],
+    id: campsite["CampsiteID"],
     facility_id: campsite["FacilityID"],
+    CampSiteName: campsite["CampsiteName"],
     TypeOfUse: campsite["TypeOfUse"],
     Loop: campsite["Loop"],
     CampsiteAccessible: campsite["CampsiteAccessible"],

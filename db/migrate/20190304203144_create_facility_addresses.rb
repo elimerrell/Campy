@@ -1,7 +1,7 @@
 class CreateFacilityAddresses < ActiveRecord::Migration[5.2]
   def change
-    create_table :facility_addresses do |t|
-      t.bigint :facility_address_id, primary: true 
+    create_table :facility_addresses, id:false do |t|
+      t.primary_key :id
       t.bigint :facility_id
       t.string :FacilityStreetAddress1
       t.string :FacilityStreetAddress2

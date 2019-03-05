@@ -1,6 +1,11 @@
-<ul>
-  <% @facilities.each do |facility| %>
-  <li><%= link_to facility.FacilityName, facility_path(facility) %></li>
+<h4>Search Recreation Facilities by State</h4>
+  <%= form_tag(facilities_path, method: :get) do %>
+    <%= text_field_tag(:query, params[:query]) %>
+    <%= submit_tag ("Search") %>
   <% end %>
 
-</ul>
+  <ul>
+  <% @facilities.each do |facility| %>
+    <li><%= link_to facility.FacilityName, facility_path(facility) %></li>
+  <% end %>
+  </ul>

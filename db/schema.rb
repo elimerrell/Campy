@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 2019_03_04_203144) do
   enable_extension "plpgsql"
 
   create_table "campsites", force: :cascade do |t|
-    t.bigint "CampsiteID"
-    t.bigint "FacilityID"
+    t.bigint "facility_id"
+    t.string "CampSiteName"
     t.string "TypeOfUse"
     t.string "Loop"
     t.string "CampsiteAccessible"
@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 2019_03_04_203144) do
   end
 
   create_table "facilities", force: :cascade do |t|
-    t.integer "FacilityID"
     t.integer "ParentRecAreaID"
     t.string "FacilityName"
     t.text "FacilityDescription"
@@ -44,8 +43,7 @@ ActiveRecord::Schema.define(version: 2019_03_04_203144) do
   end
 
   create_table "facility_addresses", force: :cascade do |t|
-    t.bigint "FacilityAddressID"
-    t.bigint "FacilityID"
+    t.bigint "facility_id"
     t.string "FacilityStreetAddress1"
     t.string "FacilityStreetAddress2"
     t.string "FacilityStreetAddress3"

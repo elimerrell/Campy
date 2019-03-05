@@ -1,18 +1,16 @@
 
-Facility Name:<%= @facility.FacilityName %>
+<h1><%= @facility.FacilityName %></h1>
 <br>
-Description: <%= @facility.FacilityDescription %>
-<br>
-Longitude: <%= @facility.FacilityLongitude %>
-<br>
-Latitude: <%= @facility.FacilityLatitude %>
+<h3>Description: </h3> <%= sanitize @facility.FacilityDescription %>
 
-<h2>Campsites:</h2>
-<ul>
-  <%= @facility.campsites.each do |campsite| %>
-  <li>Campsite: <%= campsite.CampsiteName %> Type: <%= campsite.TypeOfUse %></li>
-  <% end %>
-</ul>
+<% if @facility.campsites.empty? == false %>
+  <h2>Campsites:</h2>
+  <ul>
+    <% @facility.campsites.each do |campsite| %>
+    <li>Campsite: <%= campsite.CampSiteName %> Type: <%= campsite.TypeOfUse %></li>
+    <% end %>
+  </ul>
+<% end %>
 
 <div id="mapid">
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2933.8469323838285!2d<% @facility.FacilityLongitude %>!3d<%= @facility.FacilityLatitude %>!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDLCsDM5JzUyLjYiTiAxMDbCsDM3JzU2LjUiVw!5e0!3m2!1sen!2sus!4v1551728359173" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
