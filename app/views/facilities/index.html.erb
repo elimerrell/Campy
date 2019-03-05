@@ -8,7 +8,7 @@
 
 <div class="container_fluid">
   <%= search_form_for @q do |f| %>
-  <%= f.search_field :facility_address_address_state_code_eq %>
+  <%= f.search_field :facility_address_address_state_code_or_facility_address_postal_code_eq %>
   <%= f.submit  %>
   <% end %>
 
@@ -16,7 +16,7 @@
 
 <h3>Campground</h3>
   <% @facilities.each do |facility| %>
-    <% if facility.is_campground %>
+    <% if facility.is_campground%>
     <ul>
       <li><%= link_to facility.facility_name, facility_path(facility) %></li>
     </ul>

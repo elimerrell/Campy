@@ -1,7 +1,17 @@
 <h1><%= @area.rec_area_name %></h1>
 <%= sanitize @area.rec_area_description %>
 
-<% if @area.keywords.empty? == false %>
+<% if @area.has_facility? %>
+<h3>Facilities</h3>
+  <ul>
+    <% @area.facilities.each do |facility| %>
+      <li><%= link_to facility.facility_name, facility_path(facility) %></li>
+    <% end  %>
+  </ul>
+<% end %>
+
+
+<% if @area.has_keywords?%>
   <h4>Keywords</h4>
   <ul>
     <% words = @area.keywords.split(",") %>

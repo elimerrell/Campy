@@ -36,7 +36,7 @@ class Facility < ApplicationRecord
   end
 
   def highest_rated
-    
+
     count_hash = Hash.new(0)
 
   end

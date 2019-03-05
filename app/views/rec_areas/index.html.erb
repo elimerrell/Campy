@@ -1,6 +1,16 @@
 <h2>Rec Areas</h2>
-<ul>
-  <% @areas.each do |area| %>
-  <li><%= link_to area.rec_area_name, rec_area_path(area) %></li>
+
+<div class="container_fluid">
+  <%= search_form_for @q do |f| %>
+  <%= f.search_field :rec_area_name_or_keywords_cont %>
+  <%= f.submit  %>
   <% end %>
-</ul>
+</div>
+
+<% if params[:q].blank? == false %>
+  <ul>
+    <% @areas.each do |area| %>
+    <li><%= link_to area.rec_area_name, rec_area_path(area) %></li>
+    <% end %>
+  </ul>
+<% end %>
