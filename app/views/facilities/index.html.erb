@@ -1,4 +1,10 @@
-<h1></h1>
+<h1>Recreation Facilities</h1>
+
+<div class="most_commented">
+  <h5>The most popular recreation area is:</h5>
+  <%= link_to Facility.most_comments.facility_name, facility_path(Facility.most_comments)%>
+
+</div>
 
 <div class="container_fluid">
   <%= search_form_for @q do |f| %>
@@ -8,9 +14,20 @@
 
 </div>
 
-
-  <ul>
+<h3>Campground</h3>
   <% @facilities.each do |facility| %>
-    <li><%= link_to facility.facility_name, facility_path(facility) %></li>
+    <% if facility.is_campground %>
+    <ul>
+      <li><%= link_to facility.facility_name, facility_path(facility) %></li>
+    </ul>
+    <% end %>
   <% end %>
-  </ul>
+
+  <h3>Recreation Facilities</h3>
+  <% @facilities.each do |facility| %>
+    <% if facility.is_facility %>
+    <ul>
+      <li><%= link_to facility.facility_name, facility_path(facility) %></li>
+    </ul>
+    <% end %>
+  <% end %>

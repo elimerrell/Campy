@@ -14,7 +14,6 @@ class CreateFacilities < ActiveRecord::Migration[5.2]
       t.float :facility_longitude
       t.float :facility_latitude
       t.boolean :reservable
-
       t.timestamps
     end
   end

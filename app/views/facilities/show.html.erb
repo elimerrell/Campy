@@ -8,13 +8,9 @@
 <br>
 <%= sanitize @facility.facility_description %>
 
-<% if @facility.campsites.empty? == false %>
-  <h2>Campsites:</h2>
-  <ul>
-    <% @facility.campsites.each do |campsite| %>
-    <li>Campsite: <%= campsite.campsite_name %> Type: <%= campsite.type_of_use %></li>
-    <% end %>
-  </ul>
+<% if @facility.has_campsites? %>
+  <h2>Camping</h2>
+  <h5>This camping facility has <%= pluralize(@facility.campsite_count, 'campsite') %> for <%= 'overnight camping' if @facility.has_campsites?.overnight? %></h5>
 <% end %>
 
 <div style='width: 800px;'>
