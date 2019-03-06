@@ -6,26 +6,44 @@
 </div>
 
 <div class="container_fluid">
-  <%= search_form_for @q do |f| %>
-  <%= f.search_field :facility_address_address_state_code_or_facility_address_postal_code_eq %>
-  <%= f.submit  %>
-  <% end %>
-</div>
-
-<h3>Campground</h3>
-  <% @facilities.each do |facility| %>
-    <% if facility.is_campground%>
-    <ul>
-      <li><%= link_to facility.facility_name, facility_path(facility) %></li>
-    </ul>
+    <%= search_form_for @q do |f| %>
+    <%= f.search_field :facility_address_address_state_code_or_facility_address_postal_code_eq %>
+    <%= f.submit  %>
     <% end %>
-  <% end %>
+  </div>
+  
+<div class='searchcols'>
+<div class="container">
+    <div class="row">
+      <div class="col">
+          <h3 align='center'>Campground</h3>
+          <div class ='displaybox'>
+          <% @facilities.each do |facility| %>
+            <% if facility.is_campground%>
+            <ul>
+                🏕️<%= link_to facility.facility_name.titleize, facility_path(facility) %>
+            </ul>
+            <% end %>
+          <% end %>
+      </div>
+    </div>
+      <div class="col">
+          <h3 align ='center'>Recreation Facilities</h3>
+          <div class ='displaybox'>
+          <% @facilities.each do |facility| %>
+            <% if facility.is_facility %>
+            <ul>
+                🌲<%= link_to facility.facility_name, facility_path(facility) %>
+            </ul>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    </div>
+  
 
-  <h3>Recreation Facilities</h3>
-  <% @facilities.each do |facility| %>
-    <% if facility.is_facility %>
-    <ul>
-      <li><%= link_to facility.facility_name, facility_path(facility) %></li>
-    </ul>
-    <% end %>
-  <% end %>
+
+
+
+ 

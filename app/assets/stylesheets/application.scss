@@ -146,3 +146,15 @@
       padding: 25px;
       margin: 15px;
     }
+
+    .displaybox {
+      height: 300px; /* or any value */
+      overflow-y: auto;
+      background-color: white;
+      padding: 25px;
+      margin: 15px;
+    }
+    
+    .searchcols{
+      padding: 20px;
+    }
