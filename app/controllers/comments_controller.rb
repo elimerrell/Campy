@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
   end
 
   def new
-    @comment = Comment.new
+    @comment = Comment.new(:facility_id => params[:facility])
   end
 
   def create

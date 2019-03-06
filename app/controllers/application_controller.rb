@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
-  helper_method :logged_in?
   before_action :set_current_user
+  helper_method :logged_in?
 
   def welcome
     render :layout => 'nonav'
