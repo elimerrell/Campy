@@ -1,50 +1,42 @@
+<div class= "facility_name" align="center">
+  <h1><%= @facility.facility_name.titleize %></h1>
+</div>
 
-  <h1><%= @facility.facility_name %></h1>
 <div id = "success_message">
   <% flash.each do |key, value| %>
   <%= content_tag :div, value, class: "flash #{key}" %>
   <% end %>
 </div>
-<br>
-<%= sanitize @facility.facility_description %>
 
-<% if @facility.has_campsites? %>
-  <h2>Camping</h2>
-  <h5>This camping facility has <%= pluralize(@facility.campsite_count, 'campsite') %> for <%= 'overnight camping' if @facility.has_campsites? %></h5>
-<% end %>
-
-<div style='width: 800px;'>
-  <div id="map" style='width: 800px; height: 400px;'></div>
+<div class="facility_description">
+  <%= sanitize @facility.facility_description %>
 </div>
 
-<script type="text/javascript">
-handler = Gmaps.build('Google');
-handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-  markers = handler.addMarkers([
-    {
-      "lat": <%= @facility.facility_latitude %>,
-      "lng": <%= @facility.facility_longitude %>,
-      "picture": {
-        "width":  32,
-        "height": 32
-      },
-      "infowindow": "Recreation Facilities"
-    }
-  ]);
-  handler.bounds.extendWith(markers);
-  handler.fitMapToBounds();
-});
-</script>
+<div class="campsites">
+  <% if @facility.has_campsites? %>
+  <h2>Camping</h2>
+  <h5>This camping facility has <%= pluralize(@facility.campsite_count, 'campsite') %> for <%= 'overnight camping' if @facility.has_campsites? %></h5>
+  <% end %>
+</div>
 
-<div class="scrollable">
-  <h5>Visitor Comments: </h5>
+<div class="map" align="center">
+  <iframe
+  width="600"
+  height="450"
+  frameborder="0" style="border:0"
+  src=<%="https://www.google.com/maps/embed/v1/view?key=AIzaSyARrdzyE7YYYLO0VsVitG-3s62pCSpyrtA&center=#{@facility.facility_latitude},#{@facility.facility_longitude}&zoom=16"%> allowfullscreen>
+  </iframe>
+</div>
+<div class="comments">
+  <div align = 'center'>
+    <h4>Comments</h4>
+  </div>
   <ul>
     <% @facility.comments.each do |comment| %>
-    <li>Username: <%= comment.user.username %>: 
+    <li>Username: <%= comment.user.username %>:
     <li>Title: <%= comment.title %></li>
     <li>Comment: <%= comment.comment %></li>
     <li>Rating: <%= comment.rating %></li>
     <% end %>
   </ul>
-
 </div>
