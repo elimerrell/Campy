@@ -1,5 +1,6 @@
 class Campsite < ApplicationRecord
   belongs_to :facility
+  has_one :facility_address
 
   def overnight
     self.type_of_use == "Overnight"

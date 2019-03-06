@@ -1,22 +1,12 @@
 <h3>Create User</h3>
-<%= form_for(@user) do |f| %>
-    <%= f.label :first_name%>
+  <div class="form">
+    <%= bootstrap_form_for(@user, layout: :center, control_col: "col-xs-5") do |f| %>
     <%= f.text_field :first_name %>
-    <br>
-    <%= f.label :last_name%>
     <%= f.text_field :last_name%>
-    <br>
-    <%= f.label :email %>
     <%= f.text_field :email %>
-    <br>
-    <%= f.label :username %>
     <%= f.text_field :username %>
-    <br>
-    <%= f.label :password %>
     <%= f.password_field :password %>
-    <br>
-    <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation %>
-    <br>
-  <%= f.submit %>
-<% end %>
+    <%= f.submit %>
+    <% end %>
+  </div>

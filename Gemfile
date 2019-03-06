@@ -5,6 +5,7 @@ ruby '2.3.3'
 gem 'bcrypt'
 gem 'gmaps4rails'
 gem 'ransack'
+gem 'bootstrap_form', '>= 4.1.0'
 #leaflet for embedded maps
 gem 'leaflet-rails'
 gem 'json'

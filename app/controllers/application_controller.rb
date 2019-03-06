@@ -2,8 +2,8 @@ class ApplicationController < ActionController::Base
   helper_method :logged_in?
   before_action :set_current_user
 
-  def index
-    redirect_to
+  def welcome
+    # render :layout => false
   end
 
   def set_current_user

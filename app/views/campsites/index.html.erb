@@ -1,3 +1,9 @@
 <h2>Campsites</h2>
 
+  <% @campsites.each do |campsite|%>
+    <ul>
+      <li> Site: <%= campsite.campsite_name %></li>
+    </ul>
+  <% end %>
+
 <%= link_to "Home", "/" %>
