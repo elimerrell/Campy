@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :set_current_user
 
   def welcome
-    # render :layout => false
+    render :layout => 'nonav'
   end
 
   def set_current_user

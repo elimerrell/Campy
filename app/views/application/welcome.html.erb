@@ -1,12 +1,9 @@
-<div id="welcome_header" class="col-xs-1" align="center">
-  <h2>Welcome to Campy</h2>
+
+<h2 class = 'text-center'>Welcome!</h2>
+
+
+<div class = "text-center">
+    <a class="signbutton" <%= link_to "Sign Up", new_user_path%></a>
+    <a class="signbutton" <%= link_to "Login", login_path %></a>
 </div>
 
-<div class="col-xs-1" align="center">
-  <div class="btn btn-outline-primary">
-    <%= link_to "Sign Up", new_user_path, :class => "btn"%>
-  </div>
-  <div class="btn btn-outline-primary">
-    <%= link_to "Login", login_path, :class => "btn" %>
-  </div>
-</div>

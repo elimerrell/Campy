@@ -6,18 +6,12 @@
   <% end %>
 </div>
 
-<%= form_for(@comment) do |f| %>
-    <%= f.label :facility_id%>
+<div class="form">
+<%= bootstrap_form_for(@comment, layout: :center, control_col: "col-xs-5") do |f| %> 
     <%= f.collection_select :facility_id, Facility.all, :id, :facility_name %>
-    <br>
-    <%= f.label :rating  %>
     <%= f.number_field :rating %>
-    <br>
-    <%= f.label :title %>
     <%= f.text_field :title %>
-    <br>
-    <%= f.label :comment %>
     <%= f.text_area :comment %>
-    <br>
   <%= f.submit %>
 <% end %>
+</div>
