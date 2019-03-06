@@ -1,7 +1,10 @@
+
 <% if flash[:notice] %>
-  <p>
-    <%= flash[:notice] %>
-  </p>
+  <div class="alert alert-danger" align="center">
+    <p>
+      <%= flash[:notice] %>
+    </p>
+  </div>
 <% end %>
 
 <div class="form">
@@ -15,4 +18,3 @@
   <%= submit_tag 'Login' %>
 <% end %>
 </div>
-
