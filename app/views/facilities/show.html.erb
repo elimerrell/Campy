@@ -14,27 +14,14 @@
 <% end %>
 
 <div style='width: 800px;'>
-  <div id="map" style='width: 800px; height: 400px;'></div>
+  <iframe
+  width="450"
+  height="250"
+  frameborder="0" style="border:0"
+  src=<%="https://www.google.com/maps/embed/v1/view?key=#{Rails.application.credentials.google_maps_api_key}&center=#{@facility.facility_latitude},#{@facility.facility_longitude}&zoom=16"%> allowfullscreen>
+</iframe>
 </div>
 
-<script type="text/javascript">
-handler = Gmaps.build('Google');
-handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-  markers = handler.addMarkers([
-    {
-      "lat": <%= @facility.facility_latitude %>,
-      "lng": <%= @facility.facility_longitude %>,
-      "picture": {
-        "width":  32,
-        "height": 32
-      },
-      "infowindow": "Recreation Facilities"
-    }
-  ]);
-  handler.bounds.extendWith(markers);
-  handler.fitMapToBounds();
-});
-</script>
 
 <div class="comments">
   <h5>Comments</h5>

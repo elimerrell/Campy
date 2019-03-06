@@ -1,12 +1,18 @@
-<h2>Campy</h2>
-
 <div class="most_commented">
   <h5>The most popular recreation area is:</h5>
   <%= link_to Facility.most_comments.facility_name, facility_path(Facility.most_comments)%>
 </div>
+<h2>Campy</h2>
 
-<%= link_to "Recreation Areas", rec_areas_path %>
-<br>
-<%= link_to "Recreation Facilities", facilities_path %>
-<br>
-<%= link_to "Campsites", campsites_path %>
+
+<div class="home_buttons">
+  <div class="btn btn-outline-primary">
+    <%= link_to "Recreation Areas", rec_areas_path %>
+  </div>
+  <div class="btn btn-outline-primary">
+    <%= link_to "Recreation Facilities", facilities_path %>
+  </div>
+  <div class="btn btn-outline-primary">
+    <%= link_to "Campsites", campsites_path %>
+  </div>
+</div>

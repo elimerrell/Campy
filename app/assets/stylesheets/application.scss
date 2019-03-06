@@ -1,7 +1,12 @@
 /*
 *= require rails_bootstrap_forms
 */
+.most_commented {
+  background-color: green;
+  border-style: solid;
+  padding: 20px;
 
+}
 .nav {
   text: #ffff;
   background-color: AliceBlue;
@@ -18,4 +23,8 @@
 
 .form {
   text-align: left;
+}
+
+.home_buttons {
+  padding: 40px;
 }
