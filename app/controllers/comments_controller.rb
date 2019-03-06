@@ -14,7 +14,9 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
-    if @comment.save
+    @comment.user_id = session[:user_id]
+    if @comment.valid?
+      @comment.save
       flash[:notice] = "Comment successfully created"
       redirect_to facility_path(@comment.facility)
     else

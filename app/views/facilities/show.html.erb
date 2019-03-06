@@ -10,7 +10,7 @@
 
 <% if @facility.has_campsites? %>
   <h2>Camping</h2>
-  <h5>This camping facility has <%= pluralize(@facility.campsite_count, 'campsite') %> for <%= 'overnight camping' if @facility.has_campsites?.overnight? %></h5>
+  <h5>This camping facility has <%= pluralize(@facility.campsite_count, 'campsite') %> for <%= 'overnight camping' if @facility.has_campsites? %></h5>
 <% end %>
 
 <div style='width: 800px;'>

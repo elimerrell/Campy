@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(username: params[:username])
-    if user
+    if user && user.authenticate(params[:password])
       session[:user_id]= user.id
       redirect_to home_path
     else
@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session.clear
-    redirect_to home_path
+    redirect_to welcome_path_url
   end
 
 end

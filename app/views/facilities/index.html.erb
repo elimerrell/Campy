@@ -3,7 +3,6 @@
 <div class="most_commented">
   <h5>The most popular recreation area is:</h5>
   <%= link_to Facility.most_comments.facility_name, facility_path(Facility.most_comments)%>
-
 </div>
 
 <div class="container_fluid">
@@ -11,7 +10,6 @@
   <%= f.search_field :facility_address_address_state_code_or_facility_address_postal_code_eq %>
   <%= f.submit  %>
   <% end %>
-
 </div>
 
 <h3>Campground</h3>
