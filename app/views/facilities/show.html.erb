@@ -27,16 +27,19 @@
   src=<%="https://www.google.com/maps/embed/v1/view?key=AIzaSyARrdzyE7YYYLO0VsVitG-3s62pCSpyrtA&center=#{@facility.facility_latitude},#{@facility.facility_longitude}&zoom=16"%> allowfullscreen>
   </iframe>
 </div>
-<div class="comments">
-  <div align = 'center'>
-    <h4>Comments</h4>
-  </div>
+
+<div class='container'>
+<h4 align='center'>User Reviews</h4>
+<div class="scrollbox">
   <ul>
     <% @facility.comments.each do |comment| %>
-    <li>Username: <%= comment.user.username %>:
-    <li>Title: <%= comment.title %></li>
-    <li>Comment: <%= comment.comment %></li>
-    <li>Rating: <%= comment.rating %></li>
+    👤 @ <%= comment.user.username %>
+      <pre><ul>
+      <strong>Title:</strong> <%= comment.title %>
+      <strong>Review:</strong><%= comment.comment %>
+      <strong>Rating:</strong> <%= comment.rating %></pre> 
+    </ul>
     <% end %>
   </ul>
+</div>
 </div>

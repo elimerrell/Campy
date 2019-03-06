@@ -39,7 +39,6 @@
     font-family:'Roboto',sans-serif;
     font-weight:500;
     color: #1abc9c;
-    text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
     text-align:center;
     transition: all 0.2s;
     }
@@ -125,11 +124,25 @@
       padding-top: 15px;
     }
 
-.form {
-  text-align: left;
-}
+    .form {
+      text-align: left;
+    }
 
-.scrollable {
-  height: 100px; 
-  overflow-y: auto;
-}
+    .map {
+      width: 940px;
+      padding: 40px;
+      background-color: rgb(241, 247, 241);
+      border-radius: 10px;
+      margin: 15px;
+    }
+
+    .scrollbox {
+      height: 300px; /* or any value */
+      width: 940px;
+      overflow-y: auto;
+      background-color: white;
+      border-radius: 5px;
+      border: 5px solid rgb(185, 167, 167);
+      padding: 25px;
+      margin: 15px;
+    }
