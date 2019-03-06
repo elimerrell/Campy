@@ -10,38 +10,51 @@
 </div>
 <% end %>
 
-<div class="facility_description">
-  <%= sanitize @facility.facility_description %>
+<div class="container">
+  <div class="facility_description">
+    <%= sanitize @facility.facility_description %>
+  </div>
+  <div class="campsites">
+    <% if @facility.has_campsites? %>
+    <h2>Camping</h2>
+    <h5>This camping facility has <%= pluralize(@facility.campsite_count, 'campsite') %> for <%= 'overnight camping' if @facility.has_campsites? %></h5>
+    <% end %>
+  </div>
 </div>
 
-<div class="campsites">
-  <% if @facility.has_campsites? %>
-  <h2>Camping</h2>
-  <h5>This camping facility has <%= pluralize(@facility.campsite_count, 'campsite') %> for <%= 'overnight camping' if @facility.has_campsites? %></h5>
-  <% end %>
-</div>
-
-<div class="map" align="center">
-  <iframe
-  width="600"
-  height="450"
-  frameborder="0" style="border:0"
-  src=<%="https://www.google.com/maps/embed/v1/view?key=&center=#{@facility.facility_latitude},#{@facility.facility_longitude}&zoom=16"%> allowfullscreen>
-  </iframe>
+<div class="container">
+  <div class="map" align="center">
+    <iframe
+    width="600"
+    height="450"
+    frameborder="0" style="border:0"
+    src="https://www.google.com/maps/embed/v1/view?key=<%=ENV['API_KEY']%>&center=<%=@facility.facility_latitude%>,<%=@facility.facility_longitude%>&zoom=16"%> allowfullscreen>
+    </iframe>
+  </div>
 </div>
 
 <div class='container'>
 <h4 align='center'>User Reviews</h4>
-<div class="scrollbox">
-  <ul>
-    <% @facility.comments.each do |comment| %>
-    👤 @ <%= comment.user.username %>
-      <pre><ul>
-      <strong>Title:</strong> <%= comment.title %>
-      <strong>Review:</strong><%= comment.comment %>
-      <strong>Rating:</strong> <%= comment.rating %></pre>
-    </ul>
-    <% end %>
-  </ul>
+  <div class="scrollbox">
+    <ul>
+      <% if @facility.comments.empty? %>
+      <div class="first_review" align="Center">
+        <h3><%= link_to "Be the first to review!", new_comment_path(:facility => @facility.id) %></h3>
+        <!-- <h3>Be the first to review!</h3> -->
+      </div>
+      <% else %>
+        <% @facility.comments.each do |comment| %>
+        👤 @ <%= comment.user.username %>
+          <pre><ul>
+          <strong>Title:</strong> <%= comment.title %>
+          <strong>Review:</strong><%= comment.comment %>
+          <strong>Rating:</strong> <%= comment.rating %></pre>
+        </ul>
+        <% end %>
+  </div>
 </div>
-</div>
+
+
+<%= link_to "Leave a review!", new_comment_path(:facility => @facility.id)  %>
+
+<% end %>

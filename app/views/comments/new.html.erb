@@ -7,8 +7,8 @@
 </div>
 
 <div class="form">
-<%= bootstrap_form_for(@comment, layout: :center, control_col: "col-xs-5") do |f| %> 
-    <%= f.collection_select :facility_id, Facility.all, :id, :facility_name %>
+<%= bootstrap_form_for(@comment, layout: :center, control_col: "col-xs-5") do |f| %>
+    <%= f.hidden_field :facility_id  %>
     <%= f.number_field :rating %>
     <%= f.text_field :title %>
     <%= f.text_area :comment %>
