@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="most_commented">
   <h5>The most popular recreation area is:</h5>
   <%= link_to Facility.most_comments.facility_name, facility_path(Facility.most_comments)%>
@@ -16,3 +17,20 @@
     <%= link_to "Campsites", campsites_path %>
   </div>
 </div>
+=======
+
+<h1 class = 'text-center'>Choose your search option:</h1>
+
+<a class="homebutton" <%= link_to "Recreation Areas", rec_areas_path %> </a>
+
+<a class="homebutton" <%= link_to "Recreation Facilities", facilities_path %></a>
+
+<a class="homebutton" <%= link_to "Campsites", campsites_path %></a>
+
+<h2 class="text-center">Or check out what's trending...</h2>
+<br>
+<div class="most_commented">
+  <h6>The most popular recreation area is:</h6>
+  <%= link_to Facility.most_comments.facility_name, facility_path(Facility.most_comments)%>
+</div>
+>>>>>>> 7ca3ba0de5fbe984ba9c0fdd8935437d3661d312

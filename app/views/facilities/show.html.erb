@@ -24,10 +24,13 @@
 
 
 <div class="comments">
-  <h5>Comments</h5>
+  <h5>Visitor Comments: </h5>
   <ul>
     <% @facility.comments.each do |comment| %>
-    <li>User:<%= comment.user.first_name %>: <%= comment.comment %></li>
+    <li>Username: <%= comment.user.username %>: 
+    <li>Title: <%= comment.title %></li>
+    <li>Comment: <%= comment.comment %></li>
+    <li>Rating: <%= comment.rating %></li>
     <% end %>
   </ul>
 

@@ -4,6 +4,7 @@
   </p>
 <% end %>
 
+<div class="form">
 <%= form_tag login_path do %>
   <%= label_tag :username  %>
   <%= text_field_tag :username %>
@@ -13,3 +14,5 @@
   <br>
   <%= submit_tag 'Login' %>
 <% end %>
+</div>
+

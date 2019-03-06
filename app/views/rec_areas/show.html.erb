@@ -10,9 +10,11 @@
   </ul>
 <% end %>
 
+<br>
+<br>
 
 <% if @area.has_keywords?%>
-  <h4>Keywords</h4>
+  <h3>Activities in the area include: </h3>
   <ul>
     <% words = @area.keywords.split(",") %>
     <% words.each do |word| %>
