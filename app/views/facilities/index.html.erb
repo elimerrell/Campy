@@ -1,14 +1,43 @@
-<h1>Recreation Facilities</h1>
-
-<div class="most_commented">
-  <h5>The most popular recreation area is:</h5>
-  <%= link_to Facility.most_comments.facility_name, facility_path(Facility.most_comments)%>
+<div align="center">
+  <h1>Recreation Facilities</h1>
 </div>
 
-<div class="container_fluid">
+<div class="container">
+  <div class="alert alert-info" align="center">
+    <div class="most_commented">
+      <h6>The most popular recreation area is:</h6>
+      <%= link_to Facility.most_comments.facility_name, facility_path(Facility.most_comments)%>
+    </div>
+  </div>
+  <div class="alert alert-info" align="center">
+    <div class="highest_rating">
+      <h6>The highest rated recreation area is:</h6>
+      <%= link_to Facility.most_comments.facility_name, facility_path(Facility.most_comments)%>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="jumbotron" align="center">
+    <div class="jumbo-text">
+      <h3>Search by state or postal code</h3>
+      <h5>(ex. WA or 98105)</h5>
+    </div>
     <%= search_form_for @q do |f| %>
-    <%= f.search_field :facility_address_address_state_code_or_facility_address_postal_code_eq %>
-    <%= f.submit  %>
+    <%= f.search_field :facility_address_address_state_code_or_facility_address_postal_code_eq, class: "input-group-sm mb-3"%>
+    <%= f.submit class: "btn btn-info"  %>
+    <% end %>
+  </div>
+</div>
+
+<h3>Campground</h3>
+  <% @facilities.each do |facility| %>
+    <% if facility.is_campground%>
+    <ul>
+      <li><%= link_to facility.facility_name, facility_path(facility) %></li>
+    </ul>
+
     <% end %>
   </div>
   
