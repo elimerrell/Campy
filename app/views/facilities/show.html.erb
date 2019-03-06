@@ -2,11 +2,13 @@
   <h1><%= @facility.facility_name.titleize %></h1>
 </div>
 
-<div id = "success_message">
+<% if flash[:notice] %>
+<div class="alert alert-info" align="center">
   <% flash.each do |key, value| %>
   <%= content_tag :div, value, class: "flash #{key}" %>
   <% end %>
 </div>
+<% end %>
 
 <div class="facility_description">
   <%= sanitize @facility.facility_description %>
@@ -24,7 +26,7 @@
   width="600"
   height="450"
   frameborder="0" style="border:0"
-  src=<%="https://www.google.com/maps/embed/v1/view?key=AIzaSyARrdzyE7YYYLO0VsVitG-3s62pCSpyrtA&center=#{@facility.facility_latitude},#{@facility.facility_longitude}&zoom=16"%> allowfullscreen>
+  src=<%="https://www.google.com/maps/embed/v1/view?key=&center=#{@facility.facility_latitude},#{@facility.facility_longitude}&zoom=16"%> allowfullscreen>
   </iframe>
 </div>
 
@@ -37,7 +39,7 @@
       <pre><ul>
       <strong>Title:</strong> <%= comment.title %>
       <strong>Review:</strong><%= comment.comment %>
-      <strong>Rating:</strong> <%= comment.rating %></pre> 
+      <strong>Rating:</strong> <%= comment.rating %></pre>
     </ul>
     <% end %>
   </ul>
