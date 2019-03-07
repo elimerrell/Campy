@@ -15,8 +15,10 @@
 <div class="container" align="center">
   <h4>My Reviews</h4>
   <div class='scrollbox'>
-  <% @user.comments.each do |comment| %>
-    <p><%= comment.comment %></p>
+  <%@user.comments.each do |comment|%>
+   <h5 align='left'> <%= comment.facility.facility_name.titleize %></h5>
+   <h6 align='left'>Rating: <%=comment.rating%></h6>
+    <p align='left'><%= comment.comment %></p>
   <%end%> 
   </div>
 </div>
