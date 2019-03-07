@@ -3,5 +3,20 @@
   <h5>@<%= @user.username %></h5>
   <h1><%= @user.full_name %></h1>
   <h5>"<%= @user.status %>"</h5>
+  <br>
+  <h4>Location:</h4>
+  <h5><%= @user.location %></h5>
+  <br>
+  <h4>About Me:</h4>
+  <h5><%= @user.bio %></h5>
+</div>
 
+<br>
+<div class="container" align="center">
+  <h4>My Reviews</h4>
+  <div class='scrollbox'>
+  <% @user.comments.each do |comment| %>
+    <p><%= comment.comment %></p>
+  <%end%> 
+  </div>
 </div>

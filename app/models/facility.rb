@@ -35,9 +35,25 @@ class Facility < ApplicationRecord
     facility_with_most
   end
 
-  def highest_rated
+  def avg_rating 
+     rating = []
+     sum = 0
+      Facility.all.each do |facility|
+      facility.comments.collect do |comment|
+        rating << comment.rating     
+       end 
+    end 
+      sum = rating.inject(:+)
+      total_rating = sum / rating.length  
+  end 
+    
 
-    count_hash = Hash.new(0)
 
-  end
-end
+   def self.highest_rated
+     facilities = Facility.all.each {|facility|}
+     byebug
+      facilities.max_by{|x| x.avg_rating}
+    end 
+  
+end 
+

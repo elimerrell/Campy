@@ -13,15 +13,14 @@ class User < ApplicationRecord
   def self.most_comments
     most_count = 0
     user_with_most = nil
-    tally = Hash.new(0)
     User.all.each do |user|
-      tally[user.comments] += 1
-      if tally[user.comments] > most_count
-        most_count = tally[user.comments]
-        user_with_most = facility
+      if user.comments.count > most_count
+        most_count = user.comments.count 
+        user_with_most = user
       end
     end
     user_with_most
   end
+
 
 end

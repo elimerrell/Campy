@@ -1,5 +1,5 @@
 <div class= "facility_name" align="center">
-  <h1><%= @facility.facility_name.titleize %></h1>
+  <h1><%= @facility.facility_name.titleize %></h1> Average User Rating: <%=@facility.avg_rating%>/5
 </div>
 
 <% if flash[:notice] %>
@@ -44,7 +44,7 @@
       </div>
       <% else %>
         <% @facility.comments.each do |comment| %>
-        👤 @ <%= comment.user.username %>
+        👤 @ <%= link_to comment.user.username, user_path(comment.user) %>
           <pre><ul>
           <strong>Title:</strong> <%= comment.title %>
           <strong>Review:</strong><%= comment.comment %>

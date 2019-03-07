@@ -31,6 +31,6 @@
 <div class="alert alert-info" align="center">
   <div class="active_user">
     <h6>The most active user is:</h6>
-    <%= link_to Facility.most_comments.facility_name, facility_path(Facility.most_comments)%>
+    <%= link_to User.most_comments.full_name, user_path(User.most_comments)%>
   </div>
 </div>
