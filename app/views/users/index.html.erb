@@ -1,0 +1,16 @@
+<div align="center">
+  <h2>Happy Campers</h2>
+</div>
+
+<% @users.each do |user| %>
+  <% if user.has_status? %>
+    <ul>
+      <div class="placeholder"><%= image_tag(user.user_img) %>@<%= link_to user.username, user_path(user) %></div>
+      <div class="tab">
+        Status: <%= user.status %>
+        <br>
+        Location: <%= user.location %>
+      </div>
+  <% end %>
+    </ul>
+<% end %>

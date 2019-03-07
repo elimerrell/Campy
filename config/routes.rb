@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :facilities, only: [:index, :show]
   resources :facility_address, only: [:index, :show]
   resources :campsites, only: [:index, :show]
-  resources :users, only: [:new, :create]
+  resources :users, only: [:index, :show, :new, :create, :edit, :update]
 
  get '/', to: 'application#welcome', as: 'welcome_path'
  get '/home', to: 'application#home'

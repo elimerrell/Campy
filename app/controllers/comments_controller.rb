@@ -8,7 +8,12 @@ class CommentsController < ApplicationController
   end
 
   def new
-    @comment = Comment.new(:facility_id => params[:facility])
+    if logged_in?
+      @comment = Comment.new(:facility_id => params[:facility])
+    else
+      flash[:notice] = 'Please login to make a comment'
+      redirect_to login_path
+    end
   end
 
   def create

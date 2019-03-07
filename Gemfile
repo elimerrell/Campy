@@ -4,6 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.3.3'
 gem 'bcrypt'
 gem 'dotenv'
+gem 'faker'
 gem 'gmaps4rails'
 gem 'ransack'
 gem 'bootstrap_form', '>= 4.1.0'

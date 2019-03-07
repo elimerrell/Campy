@@ -1,0 +1,15 @@
+<% if flash[:notice] %>
+  <div class="alert alert-danger" align="center">
+  <p>
+    <%= flash[:notice] %>
+  </p>
+  </div>
+<% end %>
+
+<h3>How are you feeling?</h3>
+  <div class="form">
+    <%= bootstrap_form_for(@current_user, layout: :center, control_col: "col-xs-auto") do |f| %>
+      <%= f.text_field :status, placeholder: 'Embarking on a new camping trip to Zion' %>
+    <%= f.submit 'Update Status' %>
+    <% end %>
+  </div>
