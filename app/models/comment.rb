@@ -1,10 +1,9 @@
 class Comment < ApplicationRecord
-  belongs_to :user
-  belongs_to :facility
-  belongs_to :rec_area
+  has_one :user
+  belongs_to :commentable, polymorphic: true, optional: true
 
   def self.avg_rating
     self.average(:rating)
-  end 
-  
+  end
+
   end

@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
-  resources :comments, only: [:new, :create, :edit]
   resources :rec_area_facilities, only: [:index, :show]
-  resources :rec_areas, only: [:index, :show]
-  resources :facilities, only: [:index, :show]
+
+  resources :rec_areas, only: [:index, :show] do
+    resources :comments, only: [:new, :create, :edit]
+  end
+
+  resources :facilities, only: [:index, :show] do
+    resources :comments, only: [:new, :create, :edit]
+  end
+  
   resources :facility_address, only: [:index, :show]
   resources :campsites, only: [:index, :show]
   resources :users, only: [:index, :show, :new, :create, :edit, :update]

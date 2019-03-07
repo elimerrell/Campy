@@ -15,7 +15,7 @@ class User < ApplicationRecord
     user_with_most = nil
     User.all.each do |user|
       if user.comments.count > most_count
-        most_count = user.comments.count 
+        most_count = user.comments.count
         user_with_most = user
       end
     end

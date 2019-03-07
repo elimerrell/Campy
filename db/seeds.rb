@@ -106,14 +106,24 @@ puts "Creating Users"
 end
 puts "Users Created"
 
-puts "Creating comments"
-1000.times do 
-Comment.create(
-  user_id: User.all.sample.id,
-  facility_id: Facility.all.sample.id,
-  rating: rand(1..5), 
-  title: Faker::Book.title, 
-  comment: Faker::Hipster.paragraph(3)
-  )
-end 
-puts "Comments Created"
+# puts "Creating Facility comments"
+# 1000.times do
+# Facility.comments.create(
+#
+#   rating: rand(1..5),
+#   title: Faker::Book.title,
+#   comment: Faker::Hipster.paragraph(3)
+#   )
+# end
+#
+# puts "Creating Rec Area comments"
+# 1000.times do
+# RecArea.comments.create(
+#   user_id: User.all.sample.id,
+#   comment_id: RecArea.all.sample.id,
+#   rating: rand(1..5),
+#   title: Faker::Book.title,
+#   comment: Faker::Hipster.paragraph(3)
+#   )
+# end
+# puts "Comments Created"

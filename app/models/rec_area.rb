@@ -1,7 +1,7 @@
 class RecArea < ApplicationRecord
   has_many :rec_area_facilities
   has_many :facilities, through: :rec_area_facilities
-  has_many :comments 
+  has_many :comments, as: :commentable
 
   def has_facility?
     self.facilities.count > 0

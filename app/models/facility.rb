@@ -1,9 +1,9 @@
 class Facility < ApplicationRecord
-  has_one :facility_address
+  has_one  :facility_address
   has_many :campsites
   has_many :rec_area_facilities
   has_many :rec_areas, through: :rec_area_facilities
-  has_many :comments
+  has_many :comments, as: :commentable
 
   def is_campground
     self.facility_type_description == "Campground"
@@ -35,25 +35,24 @@ class Facility < ApplicationRecord
     facility_with_most
   end
 
-  def avg_rating 
+  def avg_rating
      rating = []
      sum = 0
       Facility.all.each do |facility|
       facility.comments.collect do |comment|
-        rating << comment.rating     
-       end 
-    end 
+        rating << comment.rating
+       end
+    end
       sum = rating.inject(:+)
-      total_rating = sum / rating.length  
-  end 
-    
+      total_rating = sum / rating.length
+  end
+
 
 
    def self.highest_rated
      facilities = Facility.all.each {|facility|}
      byebug
       facilities.max_by{|x| x.avg_rating}
-    end 
-  
-end 
+    end
 
+end
