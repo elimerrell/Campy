@@ -6,15 +6,17 @@
   </div>
 <% end %>
 
-<h1 class = 'text-center'>Choose your search option:</h1>
+<h1 class = 'text-center'>Interact with the Campy community:</h1>
+<div align="center">
+  <a class="homebutton" <%= link_to "Recreation Areas", rec_areas_path %> </a>
 
-<a class="homebutton" <%= link_to "Recreation Areas", rec_areas_path %> </a>
+  <a class="homebutton" <%= link_to "Profile", user_path(@current_user) %></a>
+  
+  <a class="homebutton" <%= link_to "Recreation Facilities", facilities_path %></a>
 
-<a class="homebutton" <%= link_to "Recreation Facilities", facilities_path %></a>
+  <h2 class="text-center">Or check out what's trending...</h2>
+</div>
 
-<a class="homebutton" <%= link_to "Campsites", campsites_path %></a>
-
-<h2 class="text-center">Or check out what's trending...</h2>
 
 <div class="alert alert-info" align="center">
   <div class="most_commented">

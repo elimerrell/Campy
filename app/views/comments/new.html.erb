@@ -1,10 +1,12 @@
 <h2>Create Comment</h2>
 
-<div id = "error_message">
+<% if flash[:notice] %>
+<div class="alert alert-danger" align="center">
   <% flash.each do |key, value| %>
   <%= content_tag :div, value, class: "flash #{key}" %>
   <% end %>
 </div>
+<% end %>
 
 <div class="form">
 <%= bootstrap_form_for(@comment, layout: :center, control_col: "col-xs-5") do |f| %>

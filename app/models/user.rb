@@ -1,5 +1,9 @@
 class User < ApplicationRecord
   has_secure_password
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :username, uniqueness: true
+  validates :email, presence: true
   has_many :comments
 
   def full_name
@@ -15,7 +19,7 @@ class User < ApplicationRecord
     user_with_most = nil
     User.all.each do |user|
       if user.comments.count > most_count
-        most_count = user.comments.count 
+        most_count = user.comments.count
         user_with_most = user
       end
     end
