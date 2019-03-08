@@ -15,6 +15,22 @@
 <div class="container" align="center">
   <h4>My Reviews</h4>
   <div class='scrollbox'>
+
+  <% @user.comments.each do |comment| %>
+    <p><%= comment.comment %></p>
+  <%end%>
+  </div>
+</div>
+
+<div align="center">
+  <a class="homebutton" <%= link_to "Update Status", edit_user_path(@current_user) %></a>
+</div>
+
+<div align="center">
+  <%= button_to "Delete Account", {:controller => :users,
+      :action => 'destroy', :id => @current_user.id, :method => :delete}, {class: 'btn btn-danger'} %>
+</div>
+
     <% if @user.comments.empty? %>
       <div class="first_review" align="Center">
         <h3><%= link_to "Share your experiences!", home_path %></h3>
@@ -32,3 +48,4 @@
     <%end %>
     </div>
   </div>
+

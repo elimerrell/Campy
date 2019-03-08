@@ -1,3 +1,10 @@
+<% if flash[:notice] %>
+  <div class="alert alert-danger" align="center">
+    <p>
+      <%= flash[:notice] %>
+    </p>
+  </div>
+<% end %>
 
 
 <h2 class = 'text-center'>Welcome!</h2>

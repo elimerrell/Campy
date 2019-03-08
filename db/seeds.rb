@@ -90,28 +90,27 @@ require 'faker'
 # puts "Rec Area Facilites Populated"
 
 100.times do
-  User.create(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.email,
-    bio: Faker::Lorem.paragraph(3),
-    username: Faker::Twitter.screen_name,
-    password:'password',
-    password_confirmation: 'password',
-    location: Faker::Address.city,
-    status: Faker::Quote.famous_last_words,
-    user_img: Faker::Avatar.image
-)
+    User.create(
+      first_name: Faker::Name.first_name,
+      last_name: Faker::Name.last_name,
+      email: Faker::Internet.email,
+      bio: Faker::Lorem.paragraph(3),
+      username: Faker::Twitter.screen_name,
+      password:'password',
+      password_confirmation: 'password',
+      location: Faker::Movies::Hobbit.location,
+      status: Faker::Quote.famous_last_words,
+      user_img: Faker::Avatar.image
+  )
 end
 
 100.times do
-  Comment.create(
-    user_id: User.all.sample.id,
-    facility_id: Facility.all.sample.id,
-    rating: rand(1..5),
-    title: Faker::Lorem.paragraph(1),
-    comment: Faker::Lorem.paragraph(4),
-)
+    Comment.create(
+      user_id: User.all.sample.id,
+      facility_id: Facility.all.sample.id,
+      rating: Faker::Internet.email,
+      title: Faker::Lorem.paragraph(3),
+      comment: Faker::Twitter.screen_name,
+  )
 end
-
 
