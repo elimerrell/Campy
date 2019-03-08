@@ -3,8 +3,6 @@
 </div>
 
 
-
-
 <div class="container">
   <div class="jumbotron" align="center">
     <div class="jumbo-text">
@@ -18,17 +16,19 @@
   </div>
 </div>
 
-<div class='searchcols'>
-<div class="container">
+
+<div data-spy="scroll">
     <div class="row">
       <div class="col">
           <h3 align='center'>Campground</h3>
           <div class ='displaybox'>
           <% @facilities.each do |facility| %>
             <% if facility.is_campground%>
-            <ul>
+            <div class="card">
+            <div class="card-header" align="center">
                 🏕️<%= link_to facility.facility_name.titleize, facility_path(facility) %>
-            </ul>
+            </div>
+            </div>
             <% end %>
           <% end %>
       </div>
@@ -38,12 +38,13 @@
           <div class ='displaybox'>
           <% @facilities.each do |facility| %>
             <% if facility.is_facility %>
-            <ul>
-                🌲<%= link_to facility.facility_name, facility_path(facility) %>
-            </ul>
+              <div class="card">
+              <div class="card-header" align="center">
+              🌲<%= link_to facility.facility_name, facility_path(facility) %>
+              </div>
+              </div>
             <% end %>
           <% end %>
         </div>
       </div>
-    </div>
-    </div>
+    

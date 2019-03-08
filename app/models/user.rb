@@ -32,6 +32,7 @@ class User < ApplicationRecord
     self.id == @current_user.id
   end
 
+
     # creates a new heart row with comment_id and user_id
   def heart!(comment)
     self.hearts.create!(comment_id: comment.id)
@@ -48,5 +49,17 @@ class User < ApplicationRecord
     self.hearts.find_by_comment_id(comment.id)
   end
 
-
+  def stars(number)
+    if number == 1
+       "⭐  "
+    elsif number == 2
+       "⭐ ⭐  "
+    elsif number == 3 
+       "⭐ ⭐ ⭐  " 
+    elsif number == 4 
+       "⭐ ⭐ ⭐ ⭐  " 
+    else 
+       "⭐ ⭐ ⭐ ⭐ ⭐  "
+    end 
+  end 
 end
