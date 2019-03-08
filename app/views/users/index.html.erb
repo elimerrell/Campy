@@ -26,13 +26,13 @@
 
 
 
-<h3 align='center'>Status Update!</h3>
+<h3 align='center'>Status Updates!</h3>
 <div class="scrollbox">
 <% @users.each do |user| %>
   <% if user.has_status? %>
     <ul>
       <div class="placeholder">@<%= link_to user.username, user_path(user) %></div>
- 
+
       <div class="tab">
         Status: <%= user.status %>
         <br>
