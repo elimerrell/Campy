@@ -50,7 +50,12 @@
           <pre><ul>
           <strong>Title:</strong> <%= comment.title %>
           <strong>Review:</strong><%= comment.comment %>
-          <strong>Rating:</strong> <%= comment.rating %></pre>
+          <strong>Rating:</strong> <%= comment.rating %>
+          <strong>Likes:</strong> <%= comment.hearts.count %></pre>
+          <div align="right">
+            <%= button_to heart_path(comment_id: comment.id), remote: true, :class => 'fa fa-heart' do  %>
+            <% end %>
+          </div>
         </ul>
         <% end %>
   </div>
