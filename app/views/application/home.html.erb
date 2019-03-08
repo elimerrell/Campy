@@ -14,23 +14,3 @@
 
 <a class="homebutton" <%= link_to "Campsites", campsites_path %></a>
 
-<h2 class="text-center">Or check out what's trending...</h2>
-
-<div class="alert alert-info" align="center">
-  <div class="most_commented">
-    <h6>The most popular recreation area is:</h6>
-    <%= link_to Facility.most_comments.facility_name, facility_path(Facility.most_comments)%>
-  </div>
-</div>
-<div class="alert alert-info" align="center">
-  <div class="highest_rating">
-    <h6>The highest rated recreation area is:</h6>
-    <%= link_to Facility.most_comments.facility_name, facility_path(Facility.most_comments)%>
-  </div>
-</div>
-<div class="alert alert-info" align="center">
-  <div class="active_user">
-    <h6>The most active user is:</h6>
-    <%= link_to User.most_comments.full_name, user_path(User.most_comments)%>
-  </div>
-</div>

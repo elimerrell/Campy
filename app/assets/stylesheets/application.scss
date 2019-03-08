@@ -63,9 +63,7 @@
       text-decoration:none;
       text-shadow:16px 8px 18px #1abc9c;
     }
-    .homebutton:hover {
-      background-color:#d6e0ee;
-    }
+  
     .homebutton:active {
       position:relative;
       top:1px;
@@ -180,6 +178,15 @@
 
     .tab {
       padding-left: 4em;
+    }
+
+    .trending {
+      padding-top: 35px;
+      padding-bottom: 35px;
+    }
+
+    .userfeed {
+      text-align: left;
     }
 
    

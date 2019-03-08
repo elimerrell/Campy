@@ -1,7 +1,33 @@
 <div align="center">
-  <h2>Happy Campers</h2>
+  <h1>Happy Campers</h1>
 </div>
 
+<h2 class="text-center">What's trending...</h2>
+<div class = trending>
+<div class="alert alert-info" align="center">
+  <div class="most_commented">
+    <h6>The most popular recreation area is:</h6>
+    <%= link_to Facility.most_comments.facility_name, facility_path(Facility.most_comments)%>
+  </div>
+</div>
+<div class="alert alert-info" align="center">
+  <div class="highest_rating">
+    <h6>The highest rated recreation area is:</h6>
+    <%= link_to Facility.most_comments.facility_name, facility_path(Facility.most_comments)%>
+  </div>
+</div>
+<div class="alert alert-info" align="center">
+  <div class="active_user">
+    <h6>The most active user is:</h6>
+    <%= link_to User.most_comments.full_name, user_path(User.most_comments)%>
+  </div>
+</div>
+</div>
+
+
+
+<h3 align='center'>Status Update!</h3>
+<div class="scrollbox">
 <% @users.each do |user| %>
   <% if user.has_status? %>
     <ul>
@@ -15,3 +41,4 @@
   <% end %>
     </ul>
 <% end %>
+  </div>

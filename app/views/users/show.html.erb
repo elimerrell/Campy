@@ -15,8 +15,20 @@
 <div class="container" align="center">
   <h4>My Reviews</h4>
   <div class='scrollbox'>
-  <% @user.comments.each do |comment| %>
-    <p><%= comment.comment %></p>
-  <%end%> 
+    <% if @user.comments.empty? %>
+      <div class="first_review" align="Center">
+        <h3><%= link_to "Share your experiences!", home_path %></h3>
+      </div>
+      <% else %>
+        <% @user.comments.each do |comment| %>
+          <div class='userfeed'>
+           <strong> @<%=@user.username%></strong><br>
+            <%= comment.rating%> ⭐ Review <br>
+            Title: <%=comment.title%> <br>
+            Review: <%=comment.comment%><br>
+            <p></p>
+      </div>
+    <%end%> 
+    <%end %>
+    </div>
   </div>
-</div>
