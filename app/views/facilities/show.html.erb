@@ -1,5 +1,8 @@
 <div class= "facility_name" align="center">
-  <h1><%= @facility.facility_name.titleize %></h1> Average User Rating: <%=@facility.avg_rating%>/5
+  <h1><%= @facility.facility_name.titleize %>
+      <% if @facility.has_comment? == false %>
+  </h1> Average User Rating: <%=@facility.avg_rating%>/5
+    <%end%>
 </div>
 
 <% if flash[:notice] %>

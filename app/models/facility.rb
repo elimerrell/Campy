@@ -21,6 +21,10 @@ class Facility < ApplicationRecord
     self.campsites.count
   end
 
+  def has_comment?
+    self.comments.empty? 
+  end 
+
   def self.most_comments
     most_count = 0
     facility_with_most = nil
