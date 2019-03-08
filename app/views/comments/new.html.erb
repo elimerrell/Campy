@@ -1,4 +1,4 @@
-<h2>Create Comment</h2>
+<h2>Create Review</h2>
 
 <% if flash[:notice] %>
 <div class="alert alert-danger" align="center">
@@ -11,9 +11,9 @@
 <div class="form">
 <%= bootstrap_form_for(@comment, layout: :center, control_col: "col-xs-5") do |f| %>
     <%= f.hidden_field :facility_id  %>
-    <%= f.number_field :rating %>
+    <%= f.number_field :rating, placeholder: "a rating is between 1-5"%>
     <%= f.text_field :title %>
     <%= f.text_area :comment %>
-  <%= f.submit %>
+  <%= f.submit "Create Review" %>
 <% end %>
 </div>

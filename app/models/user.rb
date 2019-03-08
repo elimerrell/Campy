@@ -5,6 +5,8 @@ class User < ApplicationRecord
   validates :username, uniqueness: true
   validates :email, presence: true
   has_many :comments
+  has_many :hearts, dependent: :destroy
+
 
   def full_name
     self.first_name + " " + self.last_name
@@ -31,4 +33,27 @@ class User < ApplicationRecord
   end
 
 
+    # creates a new heart row with comment_id and user_id
+  def heart!(comment)
+    self.hearts.create!(comment_id: comment.id)
+  end
+
+  # returns true of false if a comment is hearted by user
+  def heart?(comment)
+    self.hearts.find_by_comment_id(comment.id)
+  end
+
+  def stars(number)
+    if number == 1
+       "⭐  "
+    elsif number == 2
+       "⭐ ⭐  "
+    elsif number == 3
+       "⭐ ⭐ ⭐  "
+    elsif number == 4
+       "⭐ ⭐ ⭐ ⭐  "
+    else
+       "⭐ ⭐ ⭐ ⭐ ⭐  "
+    end
+  end
 end

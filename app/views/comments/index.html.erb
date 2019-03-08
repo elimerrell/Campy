@@ -1,0 +1,8 @@
+<% @comments.each do |comment| %>
+  <%= comment.title %>
+  <% if @current_user.heart?(comment) %>
+    <%= button_to "Unheart", unheart_path(comment_id: comment.id), remote: true, method: :delete  %>
+  <% else %>
+    <%= button_to "Heart", heart_path(comment_id: comment.id), remote: true  %>
+  <% end %>
+<% end %>

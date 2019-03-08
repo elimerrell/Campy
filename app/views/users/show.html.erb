@@ -1,47 +1,51 @@
 <div class="container" align="center">
   <%= image_tag('User_Circle.png') %>
   <h5>@<%= @user.username %></h5>
-  <h1><%= @user.full_name %></h1>
+  <h1><%= @user.full_name %></h1><br>
   <h5>"<%= @user.status %>"</h5>
-  <br>
+</div><br>
+<br>
+<div class="container" align='left'>
   <h4>Location:</h4>
   <h5><%= @user.location %></h5>
   <br>
   <h4>About Me:</h4>
   <h5><%= @user.bio %></h5>
-</div>
+</div><br><br>
+
 
 <br>
-<div class="container" align="center">
-  <h4>My Reviews</h4>
+<h1 class="display-4" align='center'>My Reviews </h1>
   <div class='scrollbox'>
+  <div data-spy="scroll">
     <% if @user.comments.empty? %>
-    <div class="first_review" align="Center">
+      <div class="first_review" align="Center">
       <h3><%= link_to "Share your experiences!", home_path %></h3>
-    </div>
+      </div>
     <% else %>
-    <% @user.comments.each do |comment| %>
-    <div class='userfeed'>
-      <strong> @<%=@user.username%></strong><br>
-      <%= link_to comment.facility.facility_name.titleize, facility_path(comment.facility) %>
-      <%= comment.rating%> ⭐ Review <br>
-      Title: <%=comment.title%> <br>
-      Review: <%=comment.comment%><br>
-      <p></p>
-    </div>
-    <%end%>
-    <%end %>
+      <% @user.comments.each do |comment| %>
+      <div class="card">
+      <div class="card-header">
+      <strong> @<%=@user.username%></strong>
+      Title: "<%=comment.title%>"
+      <%= @user.stars(comment.rating)%>
+      <br>
+         Likes: <%= comment.hearts.count %>
+      </div>
+      <div class="card-body">
+      <h5 class="card-title"> <%= link_to comment.facility.facility_name.titleize, facility_path(comment.facility) %></h5>
+      <p class="card-text"><%=comment.comment%></p>
+      </div>
+      </div>
+      <br>
+      <%end%>
   </div>
-</div>
+  <%end%>
+  </div>
 
 
 <% if @current_user.id == params[:id].to_i %>
     <div align="center">
-      <a class="homebutton" <%= link_to "Update Status", edit_user_path(@current_user) %></a>
-    </div>
-
-    <div align="center">
-      <%= button_to "Delete Account", {:controller => :users,
-        :action => 'destroy', :id => @current_user.id, :method => :delete}, {class: 'btn btn-danger'} %>
+      <a class="homebutton" <%= link_to "Update Status", edit_user_path(@current_user.id) %></a>
     </div>
 <% end %>

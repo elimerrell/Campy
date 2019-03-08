@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  match 'heart', to: 'hearts#heart', via: :post
   resources :comments, only: [:new, :create, :edit]
   resources :rec_area_facilities, only: [:index, :show]
   resources :rec_areas, only: [:index, :show]
@@ -7,8 +8,8 @@ Rails.application.routes.draw do
   resources :campsites, only: [:index, :show]
   resources :users
 
- get '/', to: 'application#welcome', as: 'welcome_path'
- get '/home', to: 'application#home'
+  get '/', to: 'application#welcome', as: 'welcome_path'
+  get '/home', to: 'application#home'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/login', to: 'sessions#destroy'

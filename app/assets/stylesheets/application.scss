@@ -1,6 +1,7 @@
 /*
 *= require rails_bootstrap_forms
 */
+@import "font-awesome";
 
 *{
   padding:0;
@@ -88,9 +89,6 @@
       text-decoration:none;
       text-shadow:16px 8px 18px #1abc9c;
     }
-    .signbutton:hover {
-      background-color:#d6e0ee;
-    }
     .signbutton:active {
       position:relative;
       top:1px;
@@ -150,7 +148,7 @@
       overflow-y: auto;
       background-color: white;
       border-radius: 5px;
-      border: 5px solid  black;
+      // border: 5px solid  black;
       padding: 25px;
       margin: 15px;
     }
@@ -210,4 +208,11 @@
 
     .updates {
       padding: 20px;
+    }
+
+    .fa {
+      font-size: 2em;
+      height: 1.2em;
+      width: 1.2em;
+      color: #1abc9c;
     }

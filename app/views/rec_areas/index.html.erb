@@ -12,14 +12,15 @@
   </div>
 </div>
 
-<div class='searchcols'>
-  <div class="container">
-      <div class="row">
-        <div class="col">
-            <h3 align='center'>Recreational Areas</h3>
-            <div class ='displaybox'>
-              <% @areas.each do |area| %>
-              <li><%= link_to area.rec_area_name, rec_area_path(area) %></li>
-              <% end %>
-        </div>
-      </div>
+<h3 align='center'>Recerational Areas</h3>
+<div class='scrollbox'>
+<div data-spy="scroll">
+<% @areas.each do |area| %>
+  <div class="card">
+  <div class="card-header" align="center">
+  <%= link_to area.rec_area_name, rec_area_path(area) %>
+  </div>
+  </div>
+  <%end%>
+</div>
+</div><br>
