@@ -52,7 +52,11 @@
       <div class="card">
         <div class="card-header">
             @<%= link_to comment.user.username, user_path(comment.user) %>
-            <%= comment.user.stars(comment.rating)%> 
+            <%= comment.user.stars(comment.rating)%>
+           <div align="right">
+            <%= button_to heart_path(comment_id: comment.id), remote: true, :class => 'fa fa-heart' do  %>
+            <% end %>
+          </div>
         </div>
         <div class="card-body">
           <h5 class="card-title"><%= comment.title %>

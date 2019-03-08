@@ -22,9 +22,13 @@
     <%= link_to User.most_comments.full_name, user_path(User.most_comments)%>
   </div>
 </div>
+<div class="alert alert-info" align="center">
+  <div class="active_user">
+    <h6>The most liked review is from:</h6>
+    <%= link_to Comment.most_hearts.user.full_name.titleize, user_path(Comment.most_hearts.user)%>
+  </div>
 </div>
-
-
+</div>
 
   <br>
   <h1 class="display-4" align='center'>Status Updates </h1><br>

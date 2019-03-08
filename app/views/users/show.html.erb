@@ -28,7 +28,10 @@
       <div class="card-header">
       <strong> @<%=@user.username%></strong>
       Title: "<%=comment.title%>" 
-      <%= @user.stars(comment.rating)%> 
+      <%= @user.stars(comment.rating)%>
+       <div align="right">
+         <%= comment.hearts.count %>
+        </div>
       </div>
       <div class="card-body">
       <h5 class="card-title"> <%= link_to comment.facility.facility_name.titleize, facility_path(comment.facility) %></h5>
