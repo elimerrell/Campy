@@ -38,12 +38,6 @@ class User < ApplicationRecord
     self.hearts.create!(comment_id: comment.id)
   end
 
-  # destroys a heart with matching comment_id and user_id
-  def unheart!(comment)
-    heart = self.hearts.find_by_comment_id(comment.id)
-    heart.destroy!
-  end
-
   # returns true of false if a comment is hearted by user
   def heart?(comment)
     self.hearts.find_by_comment_id(comment.id)
@@ -54,12 +48,12 @@ class User < ApplicationRecord
        "⭐  "
     elsif number == 2
        "⭐ ⭐  "
-    elsif number == 3 
-       "⭐ ⭐ ⭐  " 
-    elsif number == 4 
-       "⭐ ⭐ ⭐ ⭐  " 
-    else 
+    elsif number == 3
+       "⭐ ⭐ ⭐  "
+    elsif number == 4
+       "⭐ ⭐ ⭐ ⭐  "
+    else
        "⭐ ⭐ ⭐ ⭐ ⭐  "
-    end 
-  end 
+    end
+  end
 end

@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   match 'heart', to: 'hearts#heart', via: :post
-  match 'unheart', to: 'hearts#unheart', via: :delete
   resources :comments, only: [:new, :create, :edit]
   resources :rec_area_facilities, only: [:index, :show]
   resources :rec_areas, only: [:index, :show]

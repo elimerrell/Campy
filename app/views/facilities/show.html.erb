@@ -2,7 +2,7 @@
   <h1><%= @facility.facility_name.titleize %>
       <% if @facility.has_comment? == false %>
       <br><br>
-      </h1> <strong>Average User Rating: <%=@facility.stars(@facility.avg_rating)%></strong> 
+      </h1> <strong>Average User Rating: <%=@facility.stars(@facility.avg_rating)%></strong>
       <br><br>
     <%end%>
 </div>
@@ -51,16 +51,19 @@
       <% @facility.comments.each do |comment| %>
       <div class="card">
         <div class="card-header">
-            @<%= link_to comment.user.username, user_path(comment.user) %>
-            <%= comment.user.stars(comment.rating)%>
-           <div align="right">
-            <%= button_to heart_path(comment_id: comment.id), remote: true, :class => 'fa fa-heart' do  %>
+            <h5>@<%= link_to comment.user.username, user_path(comment.user) %></h5>
+           <div align="left">
+            <%=button_to heart_path(comment_id: comment.id), remote: true, :class => 'fa fa-thumbs-up' do  %>
             <% end %>
+      
+            <%= pluralize(comment.hearts.count, 'Like')%>
           </div>
         </div>
         <div class="card-body">
-          <h5 class="card-title"><%= comment.title %>
-          <p class="card-text"><%=comment.comment%></p>
+          <h5 class="card-title" align="center">"<%= comment.title %>"
+            <br>
+          <%= comment.user.stars(comment.rating)%>
+          <p class="card-text" align="left"><%=comment.comment%></p>
         </div>
       </div>
       <br>
@@ -77,6 +80,3 @@
   <a class="homebutton" <%= link_to "Leave a review!", new_comment_path(:facility => @facility.id) %></a>
 </div>
 <%end%>
-
-
-

@@ -13,19 +13,13 @@
 <div class="alert alert-info" align="center">
   <div class="highest_rating">
     <h6>The highest rated recreation facility is:</h6>
-    <%= link_to Facility.most_comments.facility_name, facility_path(Facility.most_comments)%>
+    <%= link_to Facility.highest_rated.facility_name.titleize, facility_path(Facility.highest_rated)%>
   </div>
 </div>
 <div class="alert alert-info" align="center">
   <div class="active_user">
     <h6>The most active user is:</h6>
     <%= link_to User.most_comments.full_name, user_path(User.most_comments)%>
-  </div>
-</div>
-<div class="alert alert-info" align="center">
-  <div class="active_user">
-    <h6>The most liked review is from:</h6>
-    <%= link_to Comment.most_hearts.user.full_name.titleize, user_path(Comment.most_hearts.user)%>
   </div>
 </div>
 </div>
@@ -35,7 +29,7 @@
 
   <div class="alert alert-info" align="center">
       <div class="active_user">
-        <%= link_to User.last.full_name, user_path(User.most_comments)%>
+        <%= link_to User.last.full_name, user_path(User.last)%>
         <h6>was recently active</h6>
       </div>
     </div>
@@ -46,7 +40,7 @@
       <% if user.has_status? %>
         <div class="card">
         <div class="card-header">
-        <strong> @<%= link_to user.username, user_path(user) %></strong>
+        <strong>@<%= link_to user.username, user_path(user) %></strong>
         </div>
         <div class="card-body">
         <h5 class="card-title"> Status: <%= user.status %>
@@ -58,4 +52,3 @@
       <%end%>
   </div>
   </div>
-

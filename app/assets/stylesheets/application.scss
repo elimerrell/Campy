@@ -89,9 +89,6 @@
       text-decoration:none;
       text-shadow:16px 8px 18px #1abc9c;
     }
-    .signbutton:hover {
-      background-color:#d6e0ee;
-    }
     .signbutton:active {
       position:relative;
       top:1px;
@@ -211,4 +208,11 @@
 
     .updates {
       padding: 20px;
+    }
+
+    .fa {
+      font-size: 2em;
+      height: 1.2em;
+      width: 1.2em;
+      color: #1abc9c;
     }

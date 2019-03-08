@@ -23,7 +23,7 @@
             <a class="navbutton" <%= link_to "Feed", users_path  %></a>
           </li>
           <li class="nav-item">
-            <a class="navbutton" <%= link_to "Update Status", edit_user_path(@current_user)  %></a>
+            <a class="navbutton" <%= link_to "Profile", user_path(@current_user) %></a>
           </li>
           <li class="nav-item">
             <a class="navbutton" <%= link_to "Logout", login_path, method: 'DELETE'%></a>
