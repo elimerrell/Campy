@@ -29,7 +29,7 @@
 
   <div class="alert alert-info" align="center">
       <div class="active_user">
-        <%= link_to User.last.full_name, user_path(User.last)%>
+        <%= link_to User.pluck(:username).last, user_path(User.pluck(:id).last)%>
         <h6>was recently active</h6>
       </div>
     </div>
