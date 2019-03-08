@@ -32,21 +32,21 @@ class User < ApplicationRecord
     self.id == @current_user.id
   end
 
-  # creates a new heart row with post_id and user_id
-def heart!(comment)
-  self.hearts.create!(comment_id: comment.id)
-end
+    # creates a new heart row with comment_id and user_id
+  def heart!(comment)
+    self.hearts.create!(comment_id: comment.id)
+  end
 
-# destroys a heart with matching post_id and user_id
-def unheart!(comment)
-  heart = self.hearts.find_by_comment_id(comment.id)
-  heart.destroy!
-end
+  # destroys a heart with matching comment_id and user_id
+  def unheart!(comment)
+    heart = self.hearts.find_by_comment_id(comment.id)
+    heart.destroy!
+  end
 
-# returns true of false if a post is hearted by user
-def heart?(comment)
-  self.hearts.find_by_comment_id(comment.id)
-end
+  # returns true of false if a comment is hearted by user
+  def heart?(comment)
+    self.hearts.find_by_comment_id(comment.id)
+  end
 
 
 end

@@ -22,40 +22,39 @@ class Facility < ApplicationRecord
   end
 
   def has_comment?
-    self.comments.empty? 
-  end 
-
-  def self.most_comments
-    most_count = 0
-    facility_with_most = nil
-    tally = Hash.new(0)
-    Facility.all.each do |facility|
-      tally[facility.comments] += 1
-      if tally[facility.comments] > most_count
-        most_count = tally[facility.comments]
-        facility_with_most = facility
-      end
-    end
-    facility_with_most
+    self.comments.empty?
   end
 
-  def avg_rating 
+  # def self.most_comments
+  #   most_count = 0
+  #   facility_with_most = nil
+  #   tally = Hash.new(0)
+  #   Facility.all.each do |facility|
+  #     tally[facility.comments] += 1
+  #     if tally[facility.comments] > most_count
+  #       most_count = tally[facility.comments]
+  #       facility_with_most = facility
+  #     end
+  #   end
+  #   facility_with_most
+  # end
+
+  def avg_rating
     rating = []
     sum = 0
       self.comments.collect do |comment|
-        rating << comment.rating     
-       end 
+        rating << comment.rating
+       end
       sum = rating.inject(:+)
-      total_rating = sum / rating.length  
-  end 
-    
+      total_rating = sum / rating.length
+  end
+
 
 
    def self.highest_rated
      facilities = Facility.all.each {|facility|}
      byebug
       facilities.max_by{|x| x.avg_rating}
-    end 
-  
-end 
+    end
 
+end
