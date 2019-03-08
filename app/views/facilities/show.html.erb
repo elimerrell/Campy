@@ -28,16 +28,24 @@
   </div>
 </div>
 
+<% if @facility.facility_latitude !=0 && @facility.facility_longitude !=0 %>
+  <div class="container">
+    <div class="map" align="center">
+      <iframe
+      width="600"
+      height="450"
+      frameborder="0" style="border:0"
+      src="https://www.google.com/maps/embed/v1/view?key=AIzaSyARrdzyE7YYYLO0VsVitG-3s62pCSpyrtA&center=<%=@facility.facility_latitude%>,<%=@facility.facility_longitude%>&zoom=16"%> allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+<% else %>
 <div class="container">
   <div class="map" align="center">
-    <iframe
-    width="600"
-    height="450"
-    frameborder="0" style="border:0"
-    src="https://www.google.com/maps/embed/v1/view?key=<%=ENV['API_KEY']%>&center=<%=@facility.facility_latitude%>,<%=@facility.facility_longitude%>&zoom=16"%> allowfullscreen>
-    </iframe>
+  No map to display
   </div>
 </div>
+<% end %>
 
 
 <h1 class="display-4" align='center'>Reviews </h1>
@@ -55,7 +63,7 @@
            <div align="left">
             <%=button_to heart_path(comment_id: comment.id), remote: true, :class => 'fa fa-thumbs-up' do  %>
             <% end %>
-      
+
             <%= pluralize(comment.hearts.count, 'Like')%>
           </div>
         </div>

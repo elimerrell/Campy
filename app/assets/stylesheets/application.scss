@@ -116,20 +116,7 @@
     background-color: aquamarine;
 
     }
-
-    p {
-      display: block;
-      margin-bottom: 30px;
-      padding: 15px;
-    }
-
-    h2 {
-      margin-top:  25px;
-      margin-bottom: 25px;
-      padding-bottom:  15px;
-      padding-top: 15px;
-    }
-
+    
     .form {
       text-align: left;
     }
@@ -176,7 +163,9 @@
     }
 
     .login-box {
-      border: 5px solid #FF3E19;
+      border: 1px solid black;
+      box-shadow: 3px 3px lightgrey;
+      border-radius: 10px;
       padding: 20px;
     }
 
@@ -215,4 +204,10 @@
       height: 1.2em;
       width: 1.2em;
       color: #1abc9c;
+    }
+
+    .about {
+      font-family: Arial;
+      font-style: italic;
+      font-size: 1em;
     }

@@ -29,7 +29,8 @@ class Facility < ApplicationRecord
   def self.most_comments
     most_count = 0
     facility_with_most = nil
-    Facility.all.each do |facility|
+    facilities = Facility.all.includes(:comments)
+    facilities.each do |facility|
       if facility.comments.count > most_count
         most_count = facility.comments.count
         facility_with_most = facility
@@ -55,6 +56,7 @@ class Facility < ApplicationRecord
      end
 
     def self.highest_rated
+      facilities = Facility.all.includes(:comments)
       facilities = Facility.all.each {|facility|}
       facilities.max_by{|x| x.avg_rating}
    end

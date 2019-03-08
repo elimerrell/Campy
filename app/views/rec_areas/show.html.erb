@@ -1,7 +1,7 @@
 <h1><%= @area.rec_area_name %></h1>
 <%= sanitize @area.rec_area_description %>
 
- 
+
 
 <% if @area.has_facility? %>
 <h3>Facilities</h3>
@@ -37,9 +37,7 @@
       width="600"
       height="450"
       frameborder="0" style="border:0"
-      src="https://www.google.com/maps/embed/v1/view?key=<%=ENV['API_KEY']%>&center=<%=@area.rec_area_latitude%>,<%=@area.rec_area_longitude%>&zoom=16"%> allowfullscreen>
+      src="https://www.google.com/maps/embed/v1/view?key=AIzaSyARrdzyE7YYYLO0VsVitG-3s62pCSpyrtA&center=<%=@area.rec_area_latitude%>,<%=@area.rec_area_longitude%>&zoom=16"%> allowfullscreen>
       </iframe>
     </div>
   </div>
-  
-  
