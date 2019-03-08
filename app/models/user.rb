@@ -26,5 +26,9 @@ class User < ApplicationRecord
     user_with_most
   end
 
+  def is_me?
+    self.id == @current_user.id
+  end
+
 
 end

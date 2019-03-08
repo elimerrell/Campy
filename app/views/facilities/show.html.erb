@@ -56,7 +56,9 @@
   </div>
 </div>
 
+<div align="center">
+  <a class="homebutton" <%= link_to "Leave a review!", new_comment_path(:facility => @facility.id) %></a>
+</div>
 
-<%= link_to "Leave a review!", new_comment_path(:facility => @facility.id)  %>
 
 <% end %>
