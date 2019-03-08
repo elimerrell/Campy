@@ -24,7 +24,9 @@ class CommentsController < ApplicationController
       flash[:notice] = "Comment successfully created"
       redirect_to facility_path(@comment.facility)
     else
+      @facility = @comment.facility
       flash[:notice] = "Something went wrong, please try again"
+      redirect_to new_comment_path(:facility => @facility.id)
     end
   end
 

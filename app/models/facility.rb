@@ -36,13 +36,11 @@ class Facility < ApplicationRecord
   end
 
   def avg_rating 
-     rating = []
-     sum = 0
-      Facility.all.each do |facility|
-      facility.comments.collect do |comment|
+    rating = []
+    sum = 0
+      self.comments.collect do |comment|
         rating << comment.rating     
        end 
-    end 
       sum = rating.inject(:+)
       total_rating = sum / rating.length  
   end 

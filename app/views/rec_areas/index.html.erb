@@ -1,11 +1,8 @@
-<div align="center">
-  <h2>Recreation Areas</h2>
-</div>
 
 <div class="container">
   <div class="jumbotron" align="center">
     <div class="jumbo-text">
-      <h3>Recreation area name or activity</h3>
+      <h3>Search for a recreation area by name or activity</h3>
       <h5>(ex. Yellowstone National Park or biking)</h5>
     </div>
     <%= search_form_for @q do |f| %>
@@ -15,10 +12,14 @@
   </div>
 </div>
 
-<% if params[:q].blank? == false %>
-  <ul>
-    <% @areas.each do |area| %>
-    <li><%= link_to area.rec_area_name, rec_area_path(area) %></li>
-    <% end %>
-  </ul>
-<% end %>
+<div class='searchcols'>
+  <div class="container">
+      <div class="row">
+        <div class="col">
+            <h3 align='center'>Recreational Areas</h3>
+            <div class ='displaybox'>
+              <% @areas.each do |area| %>
+              <li><%= link_to area.rec_area_name, rec_area_path(area) %></li>
+              <% end %>
+        </div>
+      </div>

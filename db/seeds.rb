@@ -100,18 +100,17 @@ require 'faker'
       password_confirmation: 'password',
       location: Faker::Movies::Hobbit.location,
       status: Faker::Quote.famous_last_words,
-      user_img: Faker::LoremFlickr.image("50x60")
+      user_img: Faker::Avatar.image
   )
 end
 
+100.times do
+    Comment.create(
+      user_id: User.all.sample.id,
+      facility_id: Facility.all.sample.id,
+      rating: Faker::Internet.email,
+      title: Faker::Lorem.paragraph(3),
+      comment: Faker::Twitter.screen_name,
+  )
+end
 
-# c1 = Comment.create(user_id: 1, facility_id: 254057, rating: 4, title: ';lkjakljd', comment: ';lkja;lkjl;kjde;nadkn')
-# c1 = Comment.create(user_id: 3, facility_id: 254057, rating: 4, title: ';lkjakljd', comment: ';lkja;lkjl;kjde;nadkn')
-# c1 = Comment.create(user_id: 4, facility_id: 259029, rating: 4, title: ';lkjakljd', comment: ';lkja;lkjl;kjde;nadkn')
-# c1 = Comment.create(user_id: 5, facility_id: 259029, rating: 4, title: ';lkjakljd', comment: ';lkja;lkjl;kjde;nadkn')
-# c1 = Comment.create(user_id: 1, facility_id: 234723, rating: 4, title: ';lkjakljd', comment: ';lkja;lkjl;kjde;nadkn')
-# c1 = Comment.create(user_id: 2, facility_id: 234723, rating: 4, title: ';lkjakljd', comment: ';lkja;lkjl;kjde;nadkn')
-# c1 = Comment.create(user_id: 3, facility_id: 234723, rating: 5, title: ';lkjakljd', comment: ';lkja;lkjl;kjde;nadkn')
-# c1 = Comment.create(user_id: 1, facility_id: 234723, rating: 3, title: ';lkjakljd', comment: ';lkja;lkjl;kjde;nadkn')
-# c1 = Comment.create(user_id: 2, facility_id: 234723, rating: 2, title: ';lkjakljd', comment: ';lkja;lkjl;kjde;nadkn')
-# c1 = Comment.create(user_id: 3, facility_id: 234723, rating: 1, title: ';lkjakljd', comment: ';lkja;lkjl;kjde;nadkn')
