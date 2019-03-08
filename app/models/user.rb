@@ -30,5 +30,19 @@ class User < ApplicationRecord
     self.id == @current_user.id
   end
 
+  def stars(number)
+    if number == 1
+       "⭐  "
+    elsif number == 2
+       "⭐ ⭐  "
+    elsif number == 3 
+       "⭐ ⭐ ⭐  " 
+    elsif number == 4 
+       "⭐ ⭐ ⭐ ⭐  " 
+    else 
+       "⭐ ⭐ ⭐ ⭐ ⭐  "
+    end 
+  end 
+
 
 end

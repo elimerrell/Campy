@@ -6,7 +6,7 @@
 <div class = trending>
 <div class="alert alert-info" align="center">
   <div class="most_commented">
-    <h6>The most popular recreation facility is:</h6>
+    <h6>The most reviewed recreation facility is:</h6>
     <%= link_to Facility.most_comments.facility_name, facility_path(Facility.most_comments)%>
   </div>
 </div>
@@ -24,27 +24,34 @@
 </div>
 </div>
 
-<div class="updates">
-  <h3 align='center'>Status Updates!</h3>
-</div>
-<div class="alert alert-info" align="center">
-  <div class="active_user">
-    <%= link_to User.last.full_name, user_path(User.most_comments)%>
-    <h6>was recently active</h6>
-  </div>
-</div>
-<div class="scrollbox">
-<% @users.each do |user| %>
-  <% if user.has_status? %>
-    <ul>
-      <div class="placeholder">@<%= link_to user.username, user_path(user) %></div>
 
-      <div class="tab">
-        Status: <%= user.status %>
-        <br>
-        Location: <%= user.location %>
+
+  <br>
+  <h1 class="display-4" align='center'>Status Updates </h1><br>
+
+  <div class="alert alert-info" align="center">
+      <div class="active_user">
+        <%= link_to User.last.full_name, user_path(User.most_comments)%>
+        <h6>was recently active</h6>
       </div>
-  <% end %>
-    </ul>
-<% end %>
+    </div>
+
+  <div class='scrollbox'>
+  <div data-spy="scroll">
+      <% @users.each do |user| %>
+      <% if user.has_status? %>
+        <div class="card">
+        <div class="card-header">
+        <strong> @<%= link_to user.username, user_path(user) %></strong>
+        </div>
+        <div class="card-body">
+        <h5 class="card-title"> Status: <%= user.status %>
+        <h5 class="card-text">Location: <%= user.location %></h5>
+        </div>
+        </div>
+        <br>
+      <%end%>
+      <%end%>
   </div>
+  </div>
+

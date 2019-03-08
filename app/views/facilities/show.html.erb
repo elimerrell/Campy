@@ -1,7 +1,9 @@
 <div class= "facility_name" align="center">
   <h1><%= @facility.facility_name.titleize %>
       <% if @facility.has_comment? == false %>
-  </h1> Average User Rating: <%=@facility.avg_rating%>/5
+      <br><br>
+      </h1> <strong>Average User Rating: <%=@facility.stars(@facility.avg_rating)%></strong> 
+      <br><br>
     <%end%>
 </div>
 
@@ -22,6 +24,7 @@
     <h2>Camping</h2>
     <h5>This camping facility has <%= pluralize(@facility.campsite_count, 'campsite') %> for <%= 'overnight camping' if @facility.has_campsites? %></h5>
     <% end %>
+    <br>
   </div>
 </div>
 
@@ -36,29 +39,40 @@
   </div>
 </div>
 
-<div class='container'>
-<h4 align='center'>User Reviews</h4>
-  <div class="scrollbox">
-    <ul>
-      <% if @facility.comments.empty? %>
+
+<h1 class="display-4" align='center'>Reviews </h1>
+  <div class='scrollbox'>
+  <div data-spy="scroll">
+    <% if @facility.comments.empty? %>
       <div class="first_review" align="Center">
-        <h3><%= link_to "Be the first to review!", new_comment_path(:facility => @facility.id) %></h3>
+      <h3><%= link_to "Be the first to review!", new_comment_path(:facility => @facility.id) %></h3>
+    </div>
+    <% else %>
+      <% @facility.comments.each do |comment| %>
+      <div class="card">
+        <div class="card-header">
+            @<%= link_to comment.user.username, user_path(comment.user) %>
+            <%= comment.user.stars(comment.rating)%> 
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"><%= comment.title %>
+          <p class="card-text"><%=comment.comment%></p>
+        </div>
       </div>
-      <% else %>
-        <% @facility.comments.each do |comment| %>
-        👤 @ <%= link_to comment.user.username, user_path(comment.user) %>
-          <pre><ul>
-          <strong>Title:</strong> <%= comment.title %>
-          <strong>Review:</strong><%= comment.comment %>
-          <strong>Rating:</strong> <%= comment.rating %></pre>
-        </ul>
-        <% end %>
+      <br>
+      <%end%>
+    </div>
+    <%end%>
   </div>
 </div>
 
+
+
+<% if @facility.comments.empty? == false %>
 <div align="center">
   <a class="homebutton" <%= link_to "Leave a review!", new_comment_path(:facility => @facility.id) %></a>
 </div>
+<%end%>
 
 
-<% end %>
+
