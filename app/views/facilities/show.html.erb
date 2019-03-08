@@ -40,7 +40,6 @@
       <% if @facility.comments.empty? %>
       <div class="first_review" align="Center">
         <h3><%= link_to "Be the first to review!", new_comment_path(:facility => @facility.id) %></h3>
-        <!-- <h3>Be the first to review!</h3> -->
       </div>
       <% else %>
         <% @facility.comments.each do |comment| %>

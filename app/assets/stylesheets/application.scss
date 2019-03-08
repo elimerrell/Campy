@@ -68,9 +68,7 @@
       text-decoration:none;
       text-shadow:16px 8px 18px #1abc9c;
     }
-    .homebutton:hover {
-      background-color:#d6e0ee;
-    }
+  
     .homebutton:active {
       position:relative;
       top:1px;
@@ -192,6 +190,7 @@
       padding-left: 4em;
     }
 
+
     .home-button {
       background-color: #FF3E19;
     }
@@ -199,3 +198,15 @@
     #sign-up {
       padding: 30px;
     }
+
+    .trending {
+      padding-top: 35px;
+      padding-bottom: 35px;
+    }
+
+    .userfeed {
+      text-align: left;
+    }
+
+   
+

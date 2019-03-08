@@ -113,3 +113,4 @@ end
       comment: Faker::Twitter.screen_name,
   )
 end
+
