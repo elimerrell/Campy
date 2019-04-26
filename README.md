@@ -4,6 +4,16 @@
 Description
 Campy is an outdoor recreation community where users can search and review outdoor recreation parks and facilities as well as interacting with other members of the Campy community.
 
+Campy is built with Ruby on Rails MVC Architecture. Campy uses a PostgreSQL database on the backend to serve data. 
+
+Campy is live! You can check it out at the following url:
+https://dry-island-18834.herokuapp.com/
+
+You can login with the following username and password to avoid signing up: 
+Username: test 
+Password: 1234
+
+
 Specs
 - A user can create a profile with a unique username and password that will be used at each login
 - A user can update their status
