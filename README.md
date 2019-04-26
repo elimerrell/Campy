@@ -1,10 +1,10 @@
-                                        #Campy
-                            #An Outdoor Recreation community
+                                                                Campy
+                                                    An Outdoor Recreation community
 
-#Description
+Description
 Campy is an outdoor recreation community where users can search and review outdoor recreation parks and facilities as well as interacting with other members of the Campy community.
 
-#Specs
+Specs
 - A user can create a profile with a unique username and password that will be used at each login
 - A user can update their status
 - A user profile should display the username, name, status, location, and bio. It should also display a list of all of
